@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint: Management Suite 9.0 | David Wenningmann</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0c0a09; color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .glass-card { background: rgba(28, 25, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        .accent-blue { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
+        <div class="font-bold tracking-tighter text-xl text-white">DAVID <span class="text-blue-500">WENNINGMANN</span></div>
+        <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" class="text-sm bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-full transition font-bold text-white">Let's Connect</a>
+    </nav>
+
+    <header class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
+        <span class="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">Architektur Blueprint 02</span>
+        <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight text-white">Management <br><span class="accent-blue">Suite 9.0 BI</span></h1>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">Echtzeit-KPI-Aggregation und dynamische Forecast-Modelle für Multi-Unit Leader. Schluss mit verspäteten Excel-Berichten.</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-24">
+        <section class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="glass-card p-6 rounded-3xl border-blue-500/20 border-2">
+                <div class="flex items-end gap-2 mb-6 h-32">
+                    <div class="bg-blue-600 w-1/4 h-2/3 rounded-t-lg"></div>
+                    <div class="bg-blue-500 w-1/4 h-full rounded-t-lg"></div>
+                    <div class="bg-blue-400 w-1/4 h-3/4 rounded-t-lg shadow-[0_0_20px_rgba(59,130,246,0.5)]"></div>
+                    <div class="bg-blue-300 w-1/4 h-4/5 rounded-t-lg"></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="h-2 w-full bg-white/5 rounded"></div>
+                    <div class="h-2 w-2/3 bg-white/5 rounded"></div>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold mb-4 text-white">Dynamic Growth Forecast</h2>
+                <p class="text-gray-400 mb-6">Mein System berechnet live den Netto-Zuwachs, indem es aktuelle Sales-Daten gegen intelligente Churn-Prognosen aus 6 Standorten spiegelt. Keine Überraschungen am Monatsende.</p>
+                <div class="flex gap-4">
+                    <div class="text-center p-3 glass-card rounded-xl flex-1">
+                        <div class="text-blue-500 font-bold">Real-Time</div>
+                        <div class="text-[10px] uppercase text-gray-500 tracking-tighter">Data Sync</div>
+                    </div>
+                    <div class="text-center p-3 glass-card rounded-xl flex-1">
+                        <div class="text-blue-500 font-bold">Predictive</div>
+                        <div class="text-[10px] uppercase text-gray-500 tracking-tighter">Analysis</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-blue-600/5 rounded-[3rem] p-12 border border-blue-500/10 text-center">
+            <h2 class="text-2xl font-bold mb-8 italic text-white">The Competitive Advantage</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Exception Management
+                    </h4>
+                    <p class="text-sm text-gray-400">Das System meldet sich nur, wenn KPIs den Toleranzbereich verlassen. Management durch Fokus statt durch Kontrolle.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Single Source of Truth
+                    </h4>
+                    <p class="text-sm text-gray-400">Ein einziges Dashboard für 160+ Mitarbeiter. Alle Abteilungen blicken auf dieselben, validierten Zahlen.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-20">
+        <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" class="inline-block bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-2xl font-black transition-all transform hover:scale-105 shadow-xl shadow-blue-900/20">Architektur anfragen</a>
+    </footer>
+</body>
+</html>
