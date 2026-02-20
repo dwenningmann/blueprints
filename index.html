@@ -3,114 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Digital Ecosystem | David Wenningmann</title>
+    <title>David Wenningmann | Operational Architecture & Leadership</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
         body { background-color: #0c0a09; color: #f3f4f6; font-family: 'Inter', sans-serif; }
-        .glass-card { background: rgba(28, 25, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: all 0.3s ease; }
-        .glass-card:hover { border-color: rgba(255, 255, 255, 0.3); transform: translateY(-5px); }
+        .glass-card { background: rgba(28, 25, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .glass-card:hover { border-color: rgba(217, 119, 6, 0.5); transform: translateY(-8px); }
         .hero-gradient { background: radial-gradient(circle at center, rgba(217, 119, 6, 0.15) 0%, transparent 70%); }
+        .kpi-glow { text-shadow: 0 0 20px rgba(217, 119, 6, 0.6); }
+        .badge { background: rgba(217, 119, 6, 0.1); border: 1px solid rgba(217, 119, 6, 0.2); color: #d97706; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+        .cost-strike { text-decoration: line-through; opacity: 0.5; }
     </style>
 </head>
 <body class="antialiased">
 
     <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto border-b border-white/5">
-        <div class="font-bold tracking-tighter text-xl uppercase">David <span class="text-amber-600">Wenningmann</span></div>
-        <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" target="_blank" class="bg-white text-black px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-amber-500 transition">Contact</a>
+        <div class="font-bold tracking-tighter text-xl uppercase italic">David <span class="text-amber-600">Wenningmann</span></div>
+        <div class="flex items-center gap-6">
+            <span class="hidden md:inline text-[10px] font-black uppercase tracking-widest text-gray-500 italic">Military Grade Leadership • Proprietary Infrastructure</span>
+            <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" target="_blank" class="bg-white text-black px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-amber-500 transition shadow-lg">Contact Agent</a>
+        </div>
     </nav>
 
-    <header class="relative overflow-hidden hero-gradient pt-20 pb-32">
+    <header class="relative overflow-hidden hero-gradient pt-24 pb-32">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-7xl font-black mb-8 leading-none tracking-tighter uppercase italic">
-                Scalable <span class="text-amber-600 italic">Business</span> Infrastructure
+            <div class="inline-block badge mb-6 italic">Director Operations & Digital Architect</div>
+            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-none tracking-tighter uppercase italic">
+                Systemic <br><span class="text-amber-600 italic">Governance</span>
             </h1>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
-                Ich entwickle proprietäre Betriebssysteme, die Sales, Business Intelligence und Facility Management in einer nahtlosen Architektur vereinen. Gebaut für Multi-Unit Skalierung.
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed italic">
+                Ich führe nicht nur Menschen – ich architektoniere den Erfolg. <br class="hidden md:block">
+                Durch die Verschmelzung von 10 Jahren Luftwaffe-Disziplin mit proprietärer Technologie erzwinge ich operative Exzellenz auf der Fläche.
             </p>
         </div>
     </header>
 
-    
-
     <section class="max-w-7xl mx-auto px-6 -mt-20">
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <div class="glass-card p-8 rounded-[2rem] flex flex-col">
-                <div class="text-emerald-500 font-mono text-xs mb-4 uppercase tracking-widest">01. Sales Engine</div>
-                <h3 class="text-2xl font-bold mb-4 uppercase">LeadMaster CRM</h3>
-                <p class="text-gray-400 text-sm mb-8 flex-grow">Maximale Conversion durch gamifizierte Lead-Capture-Systeme und automatisierte "Speed-to-Lead" Workflows.</p>
-                <div class="space-y-2 mb-8 text-[11px] font-mono text-emerald-500/80">
-                    <div>> Wheel of Fortune Logic</div>
-                    <div>> Anti-Ghosting Automation</div>
-                    <div>> Real-time Sales Pipeline</div>
+            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col border-emerald-500/20 bg-emerald-500/5">
+                <div class="text-emerald-500 font-mono text-[10px] mb-4 uppercase tracking-[0.3em] font-black">01. Sales Governance</div>
+                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter italic">LeadMaster</h3>
+                <div class="mb-6">
+                    <div class="text-3xl font-black text-emerald-500 kpi-glow tracking-tighter italic text-center">73 - 79%</div>
+                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest text-center">Conversion Standard</div>
                 </div>
-                <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" class="border border-emerald-500/30 text-emerald-500 text-center py-3 rounded-xl text-xs font-bold uppercase hover:bg-emerald-500/10 transition">Blueprint anfragen</a>
+                <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed italic text-center">Systemische Abschluss-Disziplin. Ein proprietäres Framework, das menschliche Varianz eliminiert und Höchstleistungen zum Standard macht.</p>
+                <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" class="border border-emerald-500/30 text-emerald-500 text-center py-3 rounded-2xl text-[10px] font-black uppercase hover:bg-emerald-500/10 transition">Framework Briefing</a>
             </div>
 
-            <div class="glass-card p-8 rounded-[2rem] flex flex-col border-blue-500/40 bg-blue-500/5 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-10">
-                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col border-blue-500/40 bg-blue-500/5">
+                <div class="text-blue-500 font-mono text-[10px] mb-4 uppercase tracking-[0.3em] font-black">02. Intelligence</div>
+                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter italic">Yield Matrix</h3>
+                <div class="mb-6">
+                    <div class="text-3xl font-black text-blue-500 kpi-glow tracking-tighter italic text-center">+16% CLV</div>
+                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest text-center">Lifetime Value Increase</div>
                 </div>
-                <div class="text-blue-500 font-mono text-xs mb-4 uppercase tracking-[0.3em] font-black">02. Intelligence</div>
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Performance Matrix 2.0</h3>
-                <p class="text-gray-300 text-sm mb-8 flex-grow leading-relaxed">
-                    Serverlose Multi-Unit-Steuerung. Transformiert operative Mikro-Aktivitäten in Echtzeit-KPIs. Von der ersten Beratung bis zum automatisierten Abend-Report in MS Teams.
+                <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed italic text-center">Präzisions-Steuerung über 6+ Standorte. Echtzeit-BI transformiert dezentrale Daten in sofortige operative Überlegenheit.</p>
+                <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" class="bg-blue-600 text-white text-center py-3 rounded-2xl text-[10px] font-black uppercase hover:bg-blue-500 transition shadow-lg">Diagnostic Demo</a>
+            </div>
+
+            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col border-amber-600/40 bg-amber-600/5 shadow-2xl shadow-amber-900/20">
+                <div class="text-amber-500 font-mono text-[10px] mb-4 uppercase tracking-[0.3em] font-black">03. Resilience</div>
+                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter italic">Churn Shield</h3>
+                <div class="mb-6">
+                    <div class="text-3xl font-black text-amber-500 kpi-glow tracking-tighter italic text-center">-11% Churn</div>
+                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest text-center">Retention Success</div>
+                </div>
+                <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed italic text-center">Krisen-Resistenz durch intelligente Retention-Architektur. Systemseitige Unterdrückung von Kündigungswellen.</p>
+                <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" class="bg-amber-600 text-white text-center py-3 rounded-2xl text-[10px] font-black uppercase hover:bg-amber-500 transition">Strategy Reveal</a>
+            </div>
+
+            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col border-red-500/40 bg-red-500/5">
+                <div class="text-red-500 font-mono text-[10px] mb-4 uppercase tracking-[0.3em] font-black">04. Infrastructure</div>
+                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter italic text-center">Consolidation</h3>
+                <div class="mb-6">
+                    <div class="text-sm text-gray-500 font-black uppercase tracking-widest mb-1 italic text-center text-red-400">95% Cost Reduction</div>
+                    <div class="flex items-baseline justify-center gap-2">
+                        <span class="text-gray-600 cost-strike font-bold text-lg italic">499€</span>
+                        <span class="text-3xl font-black text-red-500 kpi-glow italic">25,99€</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed italic text-center italic">Befreiung von externen SaaS-Abhängigkeiten. Überführung dezentraler Prozesse in eine zentral gesteuerte Eigen-Infrastruktur.</p>
+                <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" class="border border-red-500/30 text-red-500 text-center py-3 rounded-2xl text-[10px] font-black uppercase hover:bg-red-500/10 transition">Audit Request</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-32 border-t border-white/5 mt-10">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-black mb-6 uppercase tracking-tighter italic">Führung durch <br><span class="text-amber-600 italic">Infrastruktur</span></h2>
+                <p class="text-gray-400 font-light text-lg italic leading-relaxed">
+                    Ein Director ist kein Verwalter von Problemen. Er ist der Architekt der Bedingungen, unter denen Probleme gar nicht erst entstehen können. 
+                    Meine militärische Laufbahn hat mich gelehrt: Disziplin ist eine Frage der Struktur, nicht der Motivation.
                 </p>
-                <div class="space-y-3 mb-8 text-[10px] font-mono">
-                    <div class="flex items-center gap-2 text-blue-400">
-                        <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
-                        <span>Hybrid Data Fusion (Import/Live)</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-blue-400/80">
-                        <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                        <span>EFF-Index: Fairness Algorithm</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-blue-400/80">
-                        <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                        <span>Teams & Power Automate Integration</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-blue-400/80">
-                        <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                        <span>Self-Learning Staff Management</span>
-                    </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/10">
+                    <div class="text-amber-500 font-black text-2xl mb-1 italic">10J</div>
+                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest">Leadership</div>
                 </div>
-                <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" class="bg-blue-600 text-white text-center py-3 rounded-xl text-xs font-black uppercase hover:bg-blue-500 transition shadow-[0_0_20px_rgba(37,99,235,0.3)]">Performance Demo</a>
-            </div>
-
-            <div class="glass-card p-8 rounded-[2rem] flex flex-col border-amber-500/20">
-                <div class="text-amber-500 font-mono text-xs mb-4 uppercase tracking-widest">03. Operations</div>
-                <h3 class="text-2xl font-bold mb-4 uppercase">Facility OS</h3>
-                <p class="text-gray-400 text-sm mb-8 flex-grow">Operative Exzellenz durch QR-gestützte Instandhaltung und softwarebasierte Governance (Shift-Guard).</p>
-                <div class="space-y-2 mb-8 text-[11px] font-mono text-amber-500/80">
-                    <div>> QR Scan-to-Ticket</div>
-                    <div>> Shift-Guard Security</div>
-                    <div>> Smart Audit Workflows</div>
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/10">
+                    <div class="text-amber-500 font-black text-2xl mb-1 italic">Proprietary</div>
+                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest">Tech Stack</div>
                 </div>
-                <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" class="border border-amber-500/30 text-amber-500 text-center py-3 rounded-xl text-xs font-bold uppercase hover:bg-amber-500/10 transition">Blueprint anfragen</a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="max-w-4xl mx-auto px-6 py-32 text-center">
-        <h2 class="text-3xl font-bold mb-12 uppercase italic">Warum ein geschlossenes System?</h2>
-        <div class="grid md:grid-cols-2 gap-12 text-left">
-            <div>
-                <h4 class="text-white font-bold mb-2">Keine Admin-Silos</h4>
-                <p class="text-sm text-gray-500">Daten fließen nahtlos vom Sales-Rad über das Dashboard bis zur Wartung. Ein Tech-Stack für das gesamte Unternehmen.</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-2">Skalierung ohne Overhire</h4>
-                <p class="text-sm text-gray-500">Automation ersetzt manuelle Berichte und Kontrolle. Führen Sie 10 Standorte mit dem gleichen Admin-Aufwand wie einen.</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-24 border-t border-white/5 text-center">
-        <div class="max-w-2xl mx-auto px-6">
-            <h2 class="text-4xl font-black mb-8 uppercase tracking-tighter italic">Bereit für den <span class="text-amber-600">Diagnostic Sprint?</span></h2>
-            <p class="text-gray-400 mb-12 font-light text-lg italic">In 2-3 Wochen mappe ich Ihre Prozesse und liefere den fertigen Architektur-Blueprint für Ihre Skalierung.</p>
-            <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" target="_blank" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-amber-600 hover:text-white transition-all transform hover:scale-105 shadow-2xl shadow-white/5">Connect on LinkedIn</a>
+    <footer class="py-24 border-t border-white/5 text-center bg-black/40">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-5xl font-black mb-8 uppercase tracking-tighter italic">The <span class="text-amber-600 italic">Profit</span> Architect.</h2>
+            <p class="text-gray-400 mb-12 font-light text-xl italic leading-relaxed italic">Ready for deployment in high-stakes environments. Scale up. Cut cost. Command excellence.</p>
+            <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" target="_blank" class="inline-block bg-white text-black px-12 py-5 rounded-3xl font-black uppercase tracking-widest hover:bg-amber-600 hover:text-white transition-all transform hover:scale-105 shadow-2xl italic">Connect for Briefing</a>
         </div>
     </footer>
 
