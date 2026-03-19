@@ -1,134 +1,130 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Wenningmann | Operational Architecture & Leadership</title>
+    <title>D. Wenningmann | Lead & Automation Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #0c0a09; color: #f3f4f6; font-family: 'Inter', sans-serif; }
-        .glass-card { background: rgba(28, 25, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .glass-card:hover { border-color: rgba(217, 119, 6, 0.5); transform: translateY(-8px); }
-        .hero-gradient { background: radial-gradient(circle at center, rgba(217, 119, 6, 0.15) 0%, transparent 70%); }
-        .kpi-glow { text-shadow: 0 0 20px rgba(217, 119, 6, 0.6); }
-        .badge { background: rgba(217, 119, 6, 0.1); border: 1px solid rgba(217, 119, 6, 0.2); color: #d97706; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
-        .cost-strike { text-decoration: line-through; opacity: 0.5; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; }
+        .gradient-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .card:hover { border-color: #38bdf8; transform: translateY(-5px); }
+        .military-badge { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-left: 4px solid #38bdf8; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto border-b border-white/5">
-        <div class="font-bold tracking-tighter text-xl uppercase italic">David <span class="text-amber-600">Wenningmann</span></div>
-        <div class="flex items-center gap-6">
-            <span class="hidden md:inline text-[10px] font-black uppercase tracking-widest text-gray-500 italic">Military Grade Leadership • Proprietary Infrastructure</span>
-            <a href="https://calendar.app.google/iUA8KnzUNAZFcT6n9" target="_blank" class="bg-white text-black px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-amber-500 transition shadow-lg">Schedule Briefing</a>
+    <nav class="fixed w-full z-50 px-6 py-4 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span class="text-xl font-extrabold tracking-tighter uppercase tracking-widest text-sky-400">D. Wenningmann</span>
+            <div class="space-x-8 hidden md:flex text-xs font-bold uppercase tracking-widest">
+                <a href="#leadership" class="hover:text-sky-400 transition">Leadership</a>
+                <a href="#tech" class="hover:text-sky-400 transition">Expertise</a>
+                <a href="#erfolge" class="hover:text-sky-400 transition">Bilanz</a>
+                <a href="mailto:d.wenningmann@gmail.com" class="text-sky-400 border border-sky-400 px-4 py-2 rounded hover:bg-sky-400 hover:text-slate-950 transition">Kontakt</a>
+            </div>
         </div>
     </nav>
 
-    <header class="relative overflow-hidden hero-gradient pt-24 pb-32">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <div class="inline-block badge mb-6 italic">Director Operations & Digital Architect</div>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-none tracking-tighter uppercase italic">
-                Systemic <br><span class="text-amber-600 italic">Governance</span>
+    <header class="pt-40 pb-20 px-6">
+        <div class="max-w-5xl mx-auto text-left">
+            <h2 class="text-sky-500 font-mono tracking-[0.3em] mb-4 uppercase text-sm">Head of Operations | Automation Architect | Ex-Luftwaffe</h2>
+            <h1 class="text-5xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-[0.9]">
+                Führung durch <br> <span class="gradient-text">Präzision & Code.</span>
             </h1>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed italic">
-                Ich führe nicht nur Menschen – ich architektoniere den Erfolg. <br class="hidden md:block">
-                Durch die Verschmelzung von 10 Jahren Luftwaffe-Disziplin mit proprietärer Technologie erzwinge ich operative Exzellenz auf der Fläche.
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed italic">
+                10 Jahre Führungserfahrung (Luftwaffe) treffen auf radikale digitale Transformation. Ich baue keine Spielereien – ich entwickle geschäftskritische Infrastruktur, die skaliert und Kosten eliminiert.
             </p>
+            <div class="flex flex-wrap gap-6">
+                <a href="#erfolge" class="px-10 py-4 bg-sky-600 text-white font-bold rounded hover:bg-sky-500 transition shadow-lg shadow-sky-500/20">Leistungsbilanz</a>
+                <a href="mailto:d.wenningmann@gmail.com" class="px-10 py-4 border border-slate-700 font-bold rounded hover:bg-slate-800 transition">Gespräch anfragen</a>
+            </div>
         </div>
     </header>
 
-    <section class="max-w-7xl mx-auto px-6 -mt-20">
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col border-emerald-500/20 bg-emerald-500/5">
-                <div class="text-emerald-500 font-mono text-[10px] mb-4 uppercase tracking-[0.3em] font-black">01. Sales Governance</div>
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter italic">LeadMaster</h3>
-                <div class="mb-6">
-                    <div class="text-3xl font-black text-emerald-500 kpi-glow tracking-tighter italic text-center">73 - 79%</div>
-                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest text-center">Conversion Standard</div>
-                </div>
-                <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed italic text-center">Systemische Abschluss-Disziplin. Ein proprietäres Framework, das menschliche Varianz eliminiert und Höchstleistungen zum Standard macht.</p>
-                <a href="https://calendar.app.google/iUA8KnzUNAZFcT6n9" target="_blank" class="border border-emerald-500/30 text-emerald-500 text-center py-3 rounded-2xl text-[10px] font-black uppercase hover:bg-emerald-500/10 transition tracking-widest">Framework Briefing</a>
-            </div>
-
-            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col border-blue-500/40 bg-blue-500/5">
-                <div class="text-blue-500 font-mono text-[10px] mb-4 uppercase tracking-[0.3em] font-black">02. Intelligence</div>
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter italic">Yield Matrix</h3>
-                <div class="mb-6">
-                    <div class="text-3xl font-black text-blue-500 kpi-glow tracking-tighter italic text-center">+16% CLV</div>
-                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest text-center">Lifetime Value Increase</div>
-                </div>
-                <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed italic text-center">Präzisions-Steuerung über 6+ Standorte. Echtzeit-BI transformiert dezentrale Daten in sofortige operative Überlegenheit.</p>
-                <a href="https://calendar.app.google/iUA8KnzUNAZFcT6n9" target="_blank" class="bg-blue-600 text-white text-center py-3 rounded-2xl text-[10px] font-black uppercase hover:bg-blue-500 transition shadow-lg tracking-widest">Diagnostic Demo</a>
-            </div>
-
-            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col border-amber-600/40 bg-amber-600/5 shadow-2xl shadow-amber-900/20">
-                <div class="text-amber-500 font-mono text-[10px] mb-4 uppercase tracking-[0.3em] font-black">03. Resilience</div>
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter italic">Churn Shield</h3>
-                <div class="mb-6">
-                    <div class="text-3xl font-black text-amber-500 kpi-glow tracking-tighter italic text-center">-11% Churn</div>
-                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest text-center">Retention Success</div>
-                </div>
-                <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed italic text-center">Krisen-Resistenz durch intelligente Retention-Architektur. Systemseitige Unterdrückung von Kündigungswellen.</p>
-                <a href="https://calendar.app.google/iUA8KnzUNAZFcT6n9" target="_blank" class="bg-amber-600 text-white text-center py-3 rounded-2xl text-[10px] font-black uppercase hover:bg-amber-500 transition tracking-widest">Strategy Reveal</a>
-            </div>
-
-            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col border-red-500/40 bg-red-500/5">
-                <div class="text-red-500 font-mono text-[10px] mb-4 uppercase tracking-[0.3em] font-black">04. Infrastructure</div>
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter italic text-center">Consolidation</h3>
-                <div class="mb-6">
-                    <div class="text-sm text-gray-500 font-black uppercase tracking-widest mb-1 italic text-center text-red-400">95% Cost Reduction</div>
-                    <div class="flex items-baseline justify-center gap-2">
-                        <span class="text-gray-600 cost-strike font-bold text-lg italic">499€</span>
-                        <span class="text-3xl font-black text-red-500 kpi-glow italic">25,99€</span>
+    <section id="leadership" class="py-16 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="military-badge p-8 md:p-12 rounded-r-2xl">
+                <div class="flex flex-col md:flex-row items-start gap-8">
+                    <div class="text-sky-500 text-6xl opacity-50">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tight italic">The Foundation: 10 Jahre Luftwaffe</h3>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                            Menschenführung ist das Fundament jeder Skalierung. Meine Führungskultur wurde in einem Jahrzehnt als militärischer Vorgesetzter und im Auslandseinsatz geschmiedet. 
+                            <strong>People First</strong> bedeutet für mich: Verantwortung übernehmen, wenn es darauf ankommt, und Prozesse so bauen, dass das Team gewinnen kann.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+                            <span><i class="fa-solid fa-check text-sky-500 mr-2"></i> Auslandserfahrung</span>
+                            <span><i class="fa-solid fa-check text-sky-500 mr-2"></i> Militärischer Vorgesetzter</span>
+                            <span><i class="fa-solid fa-shield-halved text-sky-500 mr-2"></i> Krisenfest</span>
+                        </div>
                     </div>
                 </div>
-                <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed italic text-center italic">Befreiung von externen SaaS-Abhängigkeiten. Überführung dezentraler Prozesse in eine zentral gesteuerte Eigen-Infrastruktur.</p>
-                <a href="https://calendar.app.google/iUA8KnzUNAZFcT6n9" target="_blank" class="border border-red-500/30 text-red-500 text-center py-3 rounded-2xl text-[10px] font-black uppercase hover:bg-red-500/10 transition tracking-widest">Audit Request</a>
             </div>
-
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 py-32 border-t border-white/5 mt-10">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-4xl font-black mb-6 uppercase tracking-tighter italic">Führung durch <br><span class="text-amber-600 italic">Infrastruktur</span></h2>
-                <p class="text-gray-400 font-light text-lg italic leading-relaxed">
-                    Ein Director ist kein Verwalter von Problemen. Er ist der Architekt der Bedingungen, unter denen Probleme gar nicht erst entstehen können. 
-                    Meine militärische Laufbahn hat mich gelehrt: Disziplin ist eine Frage der Struktur, nicht der Motivation.
-                </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="bg-white/5 p-6 rounded-3xl border border-white/10">
-                    <div class="text-amber-500 font-black text-2xl mb-1 italic">10J</div>
-                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest">Leadership</div>
+    <section id="erfolge" class="py-20 bg-slate-900/30 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <div class="text-5xl font-extrabold text-white mb-2">> 180.000 €</div>
+                    <div class="text-sky-500 uppercase tracking-widest text-[10px] font-bold">Direkte Kostenersparnis p.a.</div>
                 </div>
-                <div class="bg-white/5 p-6 rounded-3xl border border-white/10">
-                    <div class="text-amber-500 font-black text-2xl mb-1 italic">Proprietary</div>
-                    <div class="text-[9px] text-gray-500 uppercase font-black tracking-widest">Tech Stack</div>
+                <div>
+                    <div class="text-5xl font-extrabold text-white mb-2">6</div>
+                    <div class="text-sky-500 uppercase tracking-widest text-[10px] font-bold">Standorte operativ geleitet</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-extrabold text-white mb-2">30h / Woche</div>
+                    <div class="text-sky-500 uppercase tracking-widest text-[10px] font-bold">Zeitgewinn durch Automatisierung</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-24 border-t border-white/5 text-center bg-black/40">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-5xl font-black mb-8 uppercase tracking-tighter italic">The <span class="text-amber-600 italic">Profit</span> Architect.</h2>
-            <p class="text-gray-400 mb-12 font-light text-xl italic leading-relaxed italic">Ready for deployment in high-stakes environments. Scale up. Cut cost. Command excellence.</p>
-            
-            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <a href="https://calendar.app.google/iUA8KnzUNAZFcT6n9" target="_blank" 
-                   class="inline-block bg-white text-black px-12 py-5 rounded-3xl font-black uppercase tracking-widest hover:bg-amber-600 hover:text-white transition-all transform hover:scale-105 shadow-2xl italic">
-                    Book Diagnostic Sprint
-                </a>
-                <div class="flex flex-col items-center md:items-start">
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-1">Direct Access</span>
-                    <span class="text-xs text-gray-400 font-light italic">via Google Meet</span>
+    <section id="tech" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-20 uppercase tracking-[0.2em]">The Unicorn Skillset</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-10 rounded-2xl text-left">
+                    <i class="fa-solid fa-tower-broadcast text-sky-500 text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase">Strategic Ops</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm italic">
+                        Skalierung von Multi-Site-Strukturen, Prozess-Optimierung und operative Exzellenz. Effizienz ist das Ergebnis disziplinierter Führung.
+                    </p>
+                </div>
+                <div class="card p-10 rounded-2xl border-t-4 border-t-sky-500 text-left">
+                    <i class="fa-solid fa-microchip text-sky-500 text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase">No-Code Dev</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm italic">
+                        Eigenentwicklung von Recruiting-Tools, Lead-Management und Dashboards. Ich baue die Software, die teure Drittanbieter ersetzt.
+                    </p>
+                </div>
+                <div class="card p-10 rounded-2xl text-left">
+                    <i class="fa-solid fa-bullseye text-sky-500 text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase">Performance</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm italic">
+                        Sales Funnels & OMP. Marketing ist kein "Gefühl", sondern ein automatisierter Prozess zur Neukundengewinnung.
+                    </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <footer class="py-32 bg-slate-950 text-center border-t border-white/5">
+        <p class="text-sky-500 font-mono text-sm mb-4 uppercase tracking-widest">Bereit für den nächsten Einsatz?</p>
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-12 tracking-tighter italic">Mission Accomplished? <br> Let's Talk.</h2>
+        <a href="mailto:d.wenningmann@gmail.com" class="text-xl md:text-3xl font-bold text-white hover:text-sky-400 transition underline underline-offset-8 decoration-sky-500">
+            d.wenningmann@gmail.com
+        </a>
+        <div class="mt-24 text-slate-600 text-[10px] uppercase tracking-[0.4em]">
+            &copy; 2026 | D. Wenningmann | Tactical Operations & Digital Architecture
         </div>
     </footer>
 
