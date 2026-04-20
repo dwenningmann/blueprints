@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Wenningmann | The Operations Unicorn</title>
+    <style>
+        :root { 
+            --primary: #0f172a; 
+            --unicorn: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%); 
+            --gold: #f59e0b;
+            --text: #334155; 
+            --bg: #f8fafc; 
+        }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--text); background: var(--bg); margin: 0; line-height: 1.6; }
+        
+        .hero { background: var(--primary); color: white; padding: 100px 20px; text-align: center; position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 8px; background: var(--unicorn); }
+        
+        .experience-badge { 
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 6px 20px;
+            border-radius: 99px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        
+        .tagline { 
+            background: var(--unicorn); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            font-weight: 800; 
+            font-size: 1.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .unicorn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        
+        .unicorn-card { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05); 
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .unicorn-card:hover { transform: translateY(-10px); border-color: #e2e8f0; }
+        
+        .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .tech-tag { background: #f1f5f9; padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; font-weight: 600; color: #475569; }
+        
+        .value-prop { text-align: center; max-width: 900px; margin: 80px auto; font-size: 1.8rem; font-weight: 300; color: var(--primary); line-height: 1.4; }
+        
+        .mail-link {
+            display: block;
+            margin-top: 25px;
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: opacity 0.3s;
+        }
+        .mail-link:hover { opacity: 1; text-decoration: underline; }
+
+        strong { color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="experience-badge">Leadership Excellence since 2002</div>
+        <span class="tagline">Fractional Operations Leader</span>
+        <h1>The Operations Unicorn: People. Strategy. Tech.</h1>
+        <p style="font-size: 1.3rem; opacity: 0.8; max-width: 750px; margin: 20px auto;">
+            Militärische Präzision trifft auf Hyper-Automation.<br>
+            <strong>Verfügbar für ausgewählte Projekt-Mandate (Part-Time).</strong>
+        </p>
+    </div>
+
+    <div class="container">
+        
+        <p class="value-prop">
+            "Die meisten Firmen scheitern an der Schnittstelle zwischen Vision und Code. Ich besetze diese Lücke als <strong>Führungskraft mit 24 Jahren Erfahrung</strong>, die ihre Lösungen selbst baut."
+        </p>
+
+        <div class="unicorn-grid">
+            <div class="unicorn-card">
+                <span class="icon">🎖️</span>
+                <h3>People First</h3>
+                <p>Seit 2002 in Führungsverantwortung – vom <strong>militärischen Vorgesetzten</strong> bis zum Head of Ops. Ich verstehe Gruppendynamik, schaffe Akzeptanz für Wandel und entwickle Tools, die Menschen befähigen.</p>
+            </div>
+
+            <div class="unicorn-card">
+                <span class="icon">🎯</span>
+                <h3>Operations Strategy</h3>
+                <p>Zwei Jahrzehnte Erfahrung in der Skalierung. Ich orchestriere eure Infrastruktur mit Fokus auf <strong>messbare Effizienz</strong> – stabil und skalierbar von 6 bis 60 Standorten.</p>
+            </div>
+
+            <div class="unicorn-card">
+                <span class="icon">⚡</span>
+                <h3>The Tech Toolset</h3>
+                <p>Keine "Übersetzungsverluste" zwischen Business und IT. Ich identifiziere den Engpass und baue die Lösung – von KI-Agenten bis hin zu komplexen Make-Automationen.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Make / Zapier</span>
+                    <span class="tech-tag">KI-Agenten</span>
+                    <span class="tech-tag">Custom Code</span>
+                    <span class="tech-tag">M365 Automation</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: var(--primary); color: white; padding: 60px; border-radius: 30px; margin-top: 80px; text-align: center;">
+            <h2 style="color: white; margin-top: 0;">Strategische Partnerschaft statt Headcount.</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">
+                Ich biete euch 24 Jahre Expertise auf <b>Fractional-Basis</b>. Maximale Hebelwirkung für eure Operations, ohne die Fixkosten einer Vollzeit-Führungskraft.
+            </p>
+            
+            <a href="mailto:d.wenningmann@gmail.com" style="background: white; color: var(--primary); padding: 15px 40px; border-radius: 99px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 30px;">Anfrage für Projekt-Mandat</a>
+            
+            <a href="mailto:d.wenningmann@gmail.com" class="mail-link">d.wenningmann@gmail.com</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
