@@ -3,15 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>David Wenningmann – Operational Leadership CV</title>
-
+  <title>David Wenningmann – CV</title>
   <style>
     :root{
       --bg:#0b1220;
-      --paper:#ffffff;
       --ink:#0f172a;
       --muted:#475569;
-      --accent:#0ea5e9;
+      --accent:#c8f135;
+      --accent-dark:#5a6e0a;
       --line:#e2e8f0;
       --chip:#f1f5f9;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -28,9 +27,9 @@
     }
 
     .wrap{
-      max-width: 980px;
-      margin: 32px auto;
-      padding: 0 16px;
+      max-width:980px;
+      margin:32px auto;
+      padding:0 16px;
     }
 
     .paper{
@@ -40,143 +39,254 @@
       overflow:hidden;
     }
 
+    /* HEADER */
     header{
-      padding:30px 36px 18px;
-      border-bottom:1px solid var(--line);
+      padding:32px 36px 22px;
+      border-bottom:4px solid var(--accent);
+      background:#0f172a;
+      color:#f8fafc;
     }
 
     h1{
-      margin:0 0 6px 0;
-      font-size:34px;
+      margin:0 0 4px;
+      font-size:32px;
       font-weight:800;
       letter-spacing:-0.02em;
+      color:#fff;
     }
 
     .headline{
-      margin:0 0 14px 0;
-      font-weight:600;
-      color:var(--muted);
+      margin:0 0 16px;
+      font-weight:500;
+      font-size:14px;
+      color:#94a3b8;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
     }
 
     .meta{
       display:flex;
       flex-wrap:wrap;
-      gap:10px 18px;
-      font-size:13px;
-      color:var(--muted);
+      gap:8px 14px;
+      font-size:12.5px;
     }
 
     .meta span{
-      background:var(--chip);
-      border:1px solid var(--line);
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.12);
       border-radius:999px;
-      padding:6px 10px;
+      padding:5px 12px;
       font-family:var(--mono);
+      color:#cbd5e1;
     }
 
-    a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--accent); }
+    .meta a{
+      color:var(--accent);
+      border-bottom:1px solid rgba(200,241,53,0.4);
+      text-decoration:none;
+    }
 
+    /* STATS BAR */
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      background:#1e293b;
+      border-bottom:1px solid #2d3f55;
+    }
+
+    .stat{
+      padding:14px 20px;
+      border-right:1px solid #2d3f55;
+      text-align:center;
+    }
+
+    .stat:last-child{ border-right:none; }
+
+    .stat-num{
+      font-size:22px;
+      font-weight:800;
+      color:var(--accent);
+      line-height:1;
+      margin-bottom:3px;
+    }
+
+    .stat-label{
+      font-size:10px;
+      font-family:var(--mono);
+      color:#64748b;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+
+    /* GRID */
     .grid{
       display:grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns:1.15fr 0.85fr;
     }
 
     main{
-      padding:26px 36px 32px;
+      padding:28px 36px 36px;
     }
 
     aside{
-      padding:26px 28px 32px;
+      padding:28px 28px 36px;
       border-left:1px solid var(--line);
       background:#fbfdff;
     }
 
+    /* SECTION TITLES */
     h2{
-      font-size:12px;
-      letter-spacing:.14em;
+      font-size:10px;
+      letter-spacing:.16em;
       text-transform:uppercase;
-      color:#0b3b55;
-      margin:22px 0 10px;
+      color:var(--accent-dark);
+      margin:28px 0 12px;
+      padding-bottom:6px;
+      border-bottom:2px solid var(--accent);
+      display:inline-block;
     }
 
     h2:first-child{ margin-top:0; }
 
     p{
       margin:0;
-      font-size:14px;
-      line-height:1.55;
+      font-size:13.5px;
+      line-height:1.6;
+      color:#1e293b;
     }
 
     ul{
-      margin:10px 0 0 18px;
+      margin:8px 0 0 16px;
       padding:0;
-      font-size:13.5px;
-      line-height:1.55;
+      font-size:13px;
+      line-height:1.6;
+      color:#334155;
     }
 
-    li{ margin:6px 0; }
+    li{ margin:5px 0; }
 
+    /* ROLE */
     .role{
+      margin-top:20px;
+    }
+
+    .role-header{
       display:flex;
       justify-content:space-between;
       align-items:flex-start;
       gap:16px;
-      margin-top:16px;
     }
 
     .role-title{
       font-weight:800;
-      font-size:15px;
+      font-size:14.5px;
+      color:#0f172a;
     }
 
     .org{
-      font-size:13px;
+      font-size:12.5px;
       color:var(--muted);
       margin-top:2px;
     }
 
     .time{
-      font-size:12px;
+      font-size:11.5px;
       color:var(--muted);
       font-family:var(--mono);
       white-space:nowrap;
+      background:var(--chip);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:3px 10px;
+      flex-shrink:0;
     }
 
+    /* IMPACT PILLS */
+    .impact{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-top:10px;
+    }
+
+    .impact-pill{
+      font-size:11px;
+      font-family:var(--mono);
+      background:#f0fdf4;
+      border:1px solid #bbf7d0;
+      border-radius:999px;
+      padding:4px 10px;
+      color:#166534;
+      font-weight:600;
+    }
+
+    /* CHIPS */
     .chips{
       display:flex;
       flex-wrap:wrap;
-      gap:8px;
+      gap:6px;
       margin-top:10px;
     }
 
     .chip{
-      font-size:12px;
+      font-size:11.5px;
       font-family:var(--mono);
-      background:#f8fafc;
+      background:var(--chip);
       border:1px solid var(--line);
       border-radius:999px;
-      padding:6px 10px;
+      padding:5px 10px;
+      color:#334155;
     }
 
+    .chip-accent{
+      background:#fefce8;
+      border-color:#fde68a;
+      color:#92400e;
+    }
+
+    /* TAGS */
     .tags{
       display:flex;
       flex-wrap:wrap;
-      gap:8px;
+      gap:6px;
     }
 
     .tag{
-      background:#f1f5f9;
+      background:var(--chip);
       border:1px solid var(--line);
-      padding:6px 10px;
+      padding:5px 10px;
       border-radius:999px;
-      font-size:12px;
+      font-size:11.5px;
       font-family:var(--mono);
+      color:#334155;
     }
 
     .subtle{
       color:var(--muted);
       font-size:12.5px;
       margin-top:6px;
+      line-height:1.6;
+    }
+
+    .promo-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:11px;
+      font-family:var(--mono);
+      background:#eff6ff;
+      border:1px solid #bfdbfe;
+      border-radius:999px;
+      padding:4px 10px;
+      color:#1e40af;
+      margin-top:8px;
+    }
+
+    .section-intro{
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:4px;
+      line-height:1.6;
     }
 
     @media print{
@@ -185,11 +295,12 @@
       .paper{ box-shadow:none; border-radius:0; }
     }
 
-    @page{ size:A4; margin:12mm; }
+    @page{ size:A4; margin:10mm; }
 
     @media(max-width:860px){
       .grid{ grid-template-columns:1fr; }
       aside{ border-left:none; border-top:1px solid var(--line); }
+      .stats{ grid-template-columns:repeat(2,1fr); }
     }
   </style>
 </head>
@@ -198,147 +309,242 @@
 <div class="wrap">
 <div class="paper">
 
+<!-- HEADER -->
 <header>
   <h1>David Wenningmann</h1>
-  <p class="headline">
-    Operational Leadership · Transformation & Execution · Tech‑Enabled Multi‑Unit Management
-  </p>
-
+  <p class="headline">VP Operations · Digital Transformation · Full-Stack Development · People First</p>
   <div class="meta">
-    <span>Stuttgart</span>
-    <span>ab August verfügbar</span>
-    <span>E‑Mail: d.wenningmann@gmail.com</span>
-    <span>Telefon: +49 176 22997320</span>
-    <span>
-      <a href="https://dwenningmann.github.io/blueprints/">
-        dwenningmann.github.io/blueprints
-      </a>
-    </span>
+    <span>📍 Stuttgart</span>
+    <span>✉ <a href="mailto:wenningmannt@up2summit.com">wenningmannt@up2summit.com</a></span>
+    <span>📞 +49 176 22997320</span>
+    <span>🔗 <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" target="_blank">LinkedIn</a></span>
+    <span>🌐 <a href="https://dwenningmann.github.io/blueprints/" target="_blank">dwenningmann.github.io/blueprints</a></span>
+    <span>Verfügbar ab August 2026</span>
   </div>
 </header>
 
+<!-- STATS BAR -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">180K€</div>
+    <div class="stat-label">Fixkosten eliminiert p.a.</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">150+</div>
+    <div class="stat-label">Mitarbeitende geführt</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">30+</div>
+    <div class="stat-label">Individual-Apps entwickelt</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">8+ J.</div>
+    <div class="stat-label">Operative Führung</div>
+  </div>
+</div>
+
 <div class="grid">
 
+<!-- MAIN -->
 <main>
 
-<h2>Kurzprofil</h2>
-<p>
-Operational Leader mit Fokus auf Struktur, Transformation und Execution
-in technologie‑ und industriegeprägten Organisationen.
-Langjährige Führungsverantwortung in Multi‑Standort‑Strukturen,
-kombiniert mit hoher operativer Tiefe und eigener System‑ &
-Automatisierungskompetenz.
-</p>
-
-<div class="chips">
-  <span class="chip">Führung seit &gt;15 Jahren</span>
-  <span class="chip">Multi‑Site‑Verantwortung</span>
-  <span class="chip">Organisation & Governance</span>
-  <span class="chip">Digitalisierung & Automatisierung</span>
-</div>
-
-<h2>Berufserfahrung</h2>
-
-<div class="role">
-  <div>
-    <div class="role-title">Head of Operations</div>
-    <div class="org">Top Sports Fitness GmbH &amp; Co. KG</div>
+  <h2>Profil</h2>
+  <p>
+    Operational Leader mit militärischer Prägung (Luftwaffe) und eigener Full-Stack-Entwicklungskompetenz. Ich führe dezentrale Teams und baue gleichzeitig die digitalen Infrastrukturen dafür selbst – von KPI-Dashboards bis zu vollautomatisierten Recruiting-Funnels. Mein Antrieb: Menschen von stumpfer Routine befreien, damit sie das tun können, wofür sie wirklich gut sind.
+  </p>
+  <div class="chips" style="margin-top:12px">
+    <span class="chip">People First Leadership</span>
+    <span class="chip">Multi-Site-Management</span>
+    <span class="chip">Digitale Transformation</span>
+    <span class="chip chip-accent">Full-Stack: React · Firebase</span>
   </div>
-  <div class="time">04/2018 – heute</div>
-</div>
 
-<ul>
-  <li>Gesamtverantwortung für operative Steuerung und Struktur über mehrere Standorte</li>
-  <li>Aufbau klarer Verantwortungs‑ und Entscheidungsmodelle</li>
-  <li>Umsetzung von Transformations‑ und Digitalisierungsinitiativen im laufenden Betrieb</li>
-  <li>Entwicklung interner Systeme zur Entlastung operativer Führung</li>
-  <li>Einführung standardisierter Reporting‑, Steuerungs‑ und Governance‑Modelle</li>
-</ul>
+  <h2>Berufserfahrung</h2>
 
-<div class="role">
-  <div>
-    <div class="role-title">Verkaufsleiter → Studioleitung</div>
-    <div class="org">Pure Fitness</div>
+  <!-- HEAD OF OPERATIONS -->
+  <div class="role">
+    <div class="role-header">
+      <div>
+        <div class="role-title">Head of Operations</div>
+        <div class="org">Top Sports Fitness GmbH & Co. KG · Reutlingen · Hybrid</div>
+        <div class="promo-badge">⬆ Beförderung aus Verkaufsleiter-Position</div>
+      </div>
+      <div class="time">12/2022 – 07/2026</div>
+    </div>
+    <ul>
+      <li>Operative Gesamtverantwortung für <strong>6 Standorte und 150+ Mitarbeitende</strong></li>
+      <li>Aufbau dezentraler Führungsstrukturen mit datengetriebener Performance-Steuerung (OKR & KPI)</li>
+      <li><strong>30+ Individual-Apps selbst entwickelt</strong> (React · Vite · Firebase) – vollständige Unabhängigkeit von Drittsoftware</li>
+      <li>Lead-Management-Tool mit Echtzeit-Kanban, API & Webhook-Integration entwickelt und deployed</li>
+      <li>KPI-Dashboard für Echtzeit-Steuerung aller 6 Standorte implementiert</li>
+      <li>Recruiting vollständig digitalisiert – Landing Pages, Automatisierung & Onboarding-Workflows</li>
+      <li>Zero-Paper-Initiative: 30+ operative Prozesse papierlos abgebildet</li>
+    </ul>
+    <div class="impact">
+      <span class="impact-pill">↓ 180.000€ Fixkosten p.a. eliminiert</span>
+      <span class="impact-pill">↑ Retention +7%</span>
+      <span class="impact-pill">100% Softwareunabhängigkeit erreicht</span>
+    </div>
   </div>
-  <div class="time">2014 – 2018</div>
-</div>
 
-<ul>
-  <li>Aufbau und Führung leistungsstarker Verkaufsteams</li>
-  <li>Vertriebs‑ und Abschlussverantwortung</li>
-  <li>Übernahme operativer Gesamtverantwortung als Studioleiter</li>
-</ul>
-
-<div class="role">
-  <div>
-    <div class="role-title">Aushilfe → Studioleitung</div>
-    <div class="org">Jonny M Fitnessclubs</div>
+  <!-- VERKAUFSLEITER -->
+  <div class="role">
+    <div class="role-header">
+      <div>
+        <div class="role-title">Verkaufsleiter</div>
+        <div class="org">Top Sports Fitness GmbH & Co. KG · Reutlingen · Vor Ort</div>
+      </div>
+      <div class="time">04/2018 – 12/2022</div>
+    </div>
+    <ul>
+      <li>Aufbau und Führung des standortübergreifenden Verkaufsteams</li>
+      <li>Entwicklung und Umsetzung datenbasierter Vertriebsstrategien</li>
+      <li>Direkte Verantwortung für Lead-to-Member Conversion Rate</li>
+      <li>Einführung erster digitaler Prozesse im Sales-Bereich – Grundlage für spätere CRM-Digitalisierung</li>
+    </ul>
   </div>
-  <div class="time">2009 – 2014</div>
-</div>
 
-<ul>
-  <li>Karriereentwicklung vom operativen Einstieg bis zur Studioleitung</li>
-  <li>Mitarbeiterführung, Tagessteuerung und operative Optimierung</li>
-  <li>Frühe Übernahme von Verantwortung im laufenden Betrieb</li>
-</ul>
-
-<h2>Militär & Ausbildung</h2>
-
-<div class="role">
-  <div>
-    <div class="role-title">Bundeswehr – Luftwaffe</div>
-    <div class="org">Führungs‑ und Verantwortungslaufbahn</div>
+  <!-- UP2SUMMIT -->
+  <div class="role">
+    <div class="role-header">
+      <div>
+        <div class="role-title">Mitbegründer & Lead Developer</div>
+        <div class="org">up2summit GmbH · Stuttgart · Hybrid · Parallel zur Festanstellung</div>
+      </div>
+      <div class="time">05/2025 – heute</div>
+    </div>
+    <ul>
+      <li>Aufbau einer Digitalisierungsagentur mit Fokus auf KMU</li>
+      <li>Entwicklung maßgeschneiderter SaaS-Produkte (LeadMaster CRM, AllMyPrompts)</li>
+      <li>Technische Architektur & Produktentwicklung als Lead Developer</li>
+    </ul>
+    <p class="subtle" style="margin-top:8px">Läuft bewusst parallel – max. 10h/Woche. Praktisches Labor für eigene Tool-Entwicklung.</p>
   </div>
-  <div class="time">1999 – 2008</div>
-</div>
 
-<ul>
-  <li>Langjährige Führung unter erhöhtem Entscheidungs‑ und Verantwortungsdruck</li>
-  <li>Prägung eines klaren Führungs‑ und Verantwortungsverständnisses</li>
-</ul>
+  <h2>Militär & Ausbildung</h2>
 
-<div class="role">
-  <div>
-    <div class="role-title">Studium Betriebswirtschaftslehre (BWL)</div>
-    <div class="org">Bundeswehr / militärische Hochschule</div>
+  <div class="role">
+    <div class="role-header">
+      <div>
+        <div class="role-title">Luftwaffe · Einsatzführungskompanie</div>
+        <div class="org">Bundeswehr · Meßstetten · Aktiver Dienst inkl. Übergangsphase</div>
+      </div>
+      <div class="time">1999 – 2008</div>
+    </div>
+    <ul>
+      <li>Operative Verantwortung auf der Einsatzwache der Einsatzführungskompanie</li>
+      <li>Führung unter Druck & in zeitkritischen Situationen</li>
+      <li>Auslandseinsatz absolviert</li>
+    </ul>
   </div>
-  <div class="time">2006 – 2014</div>
-</div>
 
-<h2>Sprachen</h2>
-<ul>
-  <li>Deutsch – Muttersprache</li>
-  <li>Englisch – verhandlungssicher</li>
-</ul>
+  <div class="role">
+    <div class="role-header">
+      <div>
+        <div class="role-title">Studium Betriebswirtschaftslehre</div>
+        <div class="org">Bundeswehr · Studienförderung</div>
+      </div>
+      <div class="time">2006 – 2008</div>
+    </div>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <div>
+        <div class="role-title">Fachhochschulreife</div>
+        <div class="org">Bundeswehr Fachschule · Karlsruhe</div>
+      </div>
+      <div class="time">2006 – 2008</div>
+    </div>
+  </div>
 
 </main>
 
+<!-- ASIDE -->
 <aside>
 
-<h2>Kernkompetenzen</h2>
-<div class="tags">
-  <span class="tag">Operational Leadership</span>
-  <span class="tag">Organisationsstruktur</span>
-  <span class="tag">Transformation</span>
-  <span class="tag">Execution</span>
-  <span class="tag">Multi‑Unit Management</span>
-  <span class="tag">Governance</span>
-</div>
+  <h2>Führungskompetenzen</h2>
+  <div class="tags">
+    <span class="tag">Operational Leadership</span>
+    <span class="tag">Multi-Unit Management</span>
+    <span class="tag">Dezentrale Führung</span>
+    <span class="tag">OKR & KPI-Systeme</span>
+    <span class="tag">Performance-Steuerung</span>
+    <span class="tag">Prozessarchitektur</span>
+    <span class="tag">Organisationsentwicklung</span>
+    <span class="tag">People First</span>
+  </div>
 
-<h2>Schwerpunkte</h2>
-<div class="tags">
-  <span class="tag">Führung von Führungskräften</span>
-  <span class="tag">Strukturaufbau</span>
-  <span class="tag">Klarheit & Verantwortung</span>
-  <span class="tag">Digitale Prozessoptimierung</span>
-</div>
+  <h2>Tech & Entwicklung</h2>
+  <div class="tags">
+    <span class="tag">React · Vite</span>
+    <span class="tag">Firebase</span>
+    <span class="tag">REST API · Webhooks</span>
+    <span class="tag">PWA-Entwicklung</span>
+    <span class="tag">JavaScript · HTML · CSS</span>
+    <span class="tag">Google Cloud</span>
+    <span class="tag">Power BI</span>
+    <span class="tag">Microsoft 365</span>
+    <span class="tag">Zapier · Make</span>
+    <span class="tag">No-Code / Low-Code</span>
+  </div>
 
-<h2>Arbeitsweise</h2>
-<p class="subtle">
-Klar · strukturiert · umsetzungsorientiert.
-Fokus auf Wirkung statt Symbolik.
-</p>
+  <h2>Digitalisierung</h2>
+  <div class="tags">
+    <span class="tag">Digitale Transformation</span>
+    <span class="tag">SaaS-Entwicklung</span>
+    <span class="tag">CRM-Design</span>
+    <span class="tag">Recruiting-Automatisierung</span>
+    <span class="tag">Zero-Paper-Initiativen</span>
+    <span class="tag">KI-Integration</span>
+  </div>
+
+  <h2>Ausgewählte Projekte</h2>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+
+    <div>
+      <div style="font-weight:700;font-size:13px">LeadMaster CRM</div>
+      <div class="subtle">Gamifiziertes Sales-Automation-Tool · React/Vite · Firebase · Kanban · API</div>
+    </div>
+
+    <div>
+      <div style="font-weight:700;font-size:13px">KPI-Dashboard</div>
+      <div class="subtle">Echtzeit-Steuerung für 6 Standorte · datengetriebene Entscheidungsfindung</div>
+    </div>
+
+    <div>
+      <div style="font-weight:700;font-size:13px">Recruiting-Suite</div>
+      <div class="subtle">Volldigitaler Prozess · Landing Pages · Automatisierung · Onboarding</div>
+    </div>
+
+    <div>
+      <div style="font-weight:700;font-size:13px">Stickly</div>
+      <div class="subtle">Team-Wertschätzungs-App · PWA · Bulk-Upload · Multi-Location-Hub</div>
+    </div>
+
+  </div>
+
+  <h2>Sprachen</h2>
+  <div class="tags">
+    <span class="tag">Deutsch – Muttersprache</span>
+    <span class="tag">Englisch – verhandlungssicher</span>
+  </div>
+
+  <h2>Lizenzen & Zertifikate</h2>
+  <div class="tags">
+    <span class="tag">Google Cloud / Firebase</span>
+    <span class="tag">Microsoft Power BI</span>
+    <span class="tag">Zapier · Make</span>
+    <span class="tag">Performance Marketing</span>
+    <span class="tag">Fitnesstrainer B-Lizenz</span>
+  </div>
+
+  <h2>Arbeitsweise</h2>
+  <p class="subtle">
+    Strukturiert · umsetzungsorientiert · technisch souverän.<br>
+    Fokus auf messbare Wirkung statt Symbolik.<br>
+    Raum Stuttgart · max. 1,5h · Remote-Anteil willkommen.
+  </p>
 
 </aside>
 
