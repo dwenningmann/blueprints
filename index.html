@@ -4,84 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>D. Wenningmann | Lead & Automation Architect</title>
-    <meta name="description" content="Head of Operations & Automation Architect. 15+ Jahre Führungserfahrung (Luftwaffe) trifft auf radikale digitale Transformation und No-Code Architektur.">
-    <meta name="keywords" content="Operations, Automation, No-Code, Zapier, Leadership, Luftwaffe, Performance Marketing, D. Wenningmann">
-    <meta name="author" content="D. Wenningmann">
+    <title>David Wenningmann | VP Operations & Digital Transformation</title>
+    <meta name="description" content="Operational Leader mit militärischer Prägung und Full-Stack-Entwicklungskompetenz. 150+ Mitarbeitende geführt, 180.000€ Fixkosten eliminiert, 30+ Apps selbst entwickelt.">
+    <meta name="keywords" content="VP Operations, COO, Head of Operations, Digital Transformation, Full-Stack, React, Firebase, Führung, Stuttgart, David Wenningmann">
+    <meta name="author" content="David Wenningmann">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dwenningmann.github.io/blueprints/">
-    <meta property="og:title" content="D. Wenningmann | Führung durch Präzision & Code">
-    <meta property="og:description" content="Wie ich durch Automation und strategische Führung Fixkosten im sechsstelligen Bereich eliminiere.">
-    <meta property="og:image" content="https://dwenningmann.github.io/blueprints/preview-image.jpg"> 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <meta property="og:title" content="David Wenningmann | VP Operations & Digital Transformation">
+    <meta property="og:description" content="Ich führe Teams und baue die digitalen Tools dafür selbst. 180.000€ Fixkosten eliminiert. 150+ Mitarbeitende. 30+ Individual-Apps.">
+    <meta property="og:image" content="https://dwenningmann.github.io/blueprints/preview-image.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
         body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; }
-        .gradient-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .gradient-text { background: linear-gradient(90deg, #c8f135, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
         .card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
-        .card:hover { border-color: #38bdf8; transform: translateY(-5px); }
-        .military-badge { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-left: 4px solid #38bdf8; }
+        .card:hover { border-color: #c8f135; transform: translateY(-5px); }
+
+        .military-badge { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-left: 4px solid #c8f135; }
+
+        .accent { color: #c8f135; }
+        .accent-border { border-color: #c8f135; }
+
+        .pill {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: rgba(200, 241, 53, 0.08);
+            border: 1px solid rgba(200, 241, 53, 0.25);
+            color: #c8f135;
+        }
+
+        .stat-num { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; color: #fff; line-height: 1; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.7s ease both; }
+        .delay-1 { animation-delay: 0.15s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.45s; }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- NAV -->
     <nav class="fixed w-full z-50 px-6 py-4 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <span class="text-xl font-extrabold tracking-tighter uppercase tracking-widest text-sky-400">D. Wenningmann</span>
+            <span class="text-base font-extrabold tracking-widest uppercase accent">David Wenningmann</span>
             <div class="space-x-8 hidden md:flex text-xs font-bold uppercase tracking-widest items-center">
-                <a href="#leadership" class="hover:text-sky-400 transition">Leadership</a>
-                <a href="#tech" class="hover:text-sky-400 transition">Expertise</a>
-                <a href="impact.html" class="text-slate-400 hover:text-white transition italic">Impact-Analyse</a>
-                
-                <a href="CV.html" class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded border border-slate-700 hover:border-sky-400 hover:bg-slate-800 transition text-slate-200">
-                    <i class="fa-solid fa-file-lines text-sky-400"></i> CV / Resumé
-                </a>
+                <a href="#foundation" class="hover:text-white text-slate-400 transition">Führung</a>
+                <a href="#skills" class="hover:text-white text-slate-400 transition">Skills</a>
+                <a href="#projekte" class="hover:text-white text-slate-400 transition">Projekte</a>
 
-                <a href="mailto:d.wenningmann@gmail.com" class="text-sky-400 border border-sky-400 px-4 py-2 rounded hover:bg-sky-400 hover:text-slate-950 transition">Kontakt</a>
+                <a href="CV.html" class="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded border border-slate-700 hover:border-yellow-400 hover:bg-slate-800 transition text-slate-200">
+                    <i class="fa-solid fa-file-lines accent"></i> CV / Resumé
+                </a>
+                <a href="mailto:wenningmannt@up2summit.com" class="accent border accent-border px-4 py-2 rounded hover:bg-lime-400 hover:text-slate-950 transition font-bold">Kontakt</a>
             </div>
         </div>
     </nav>
 
-    <header class="pt-40 pb-20 px-6">
-        <div class="max-w-5xl mx-auto text-left">
-            <h2 class="text-sky-500 font-mono tracking-[0.3em] mb-4 uppercase text-sm">Head of Operations | Automation Architect | Ex-Luftwaffe</h2>
-            <h1 class="text-5xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-[0.9]">
-                Führung durch <br> <span class="gradient-text">Präzision & Code.</span>
+    <!-- HERO -->
+    <header class="pt-44 pb-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="mb-6 fade-up">
+                <span class="pill">VP Operations · COO Level · Stuttgart</span>
+            </div>
+            <h1 class="text-5xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-[0.9] fade-up delay-1">
+                Ich führe Teams.<br>
+                <span class="gradient-text">Und baue die Tools selbst.</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed italic">
-                10 Jahre Führungserfahrung (Luftwaffe) treffen auf radikale digitale Transformation. Ich baue keine Spielereien – ich entwickle geschäftskritische Infrastruktur, die skaliert und Kosten eliminiert.
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed fade-up delay-2">
+                Operational Excellence trifft Full-Stack-Entwicklung. 150+ Mitarbeitende geführt, 30+ Individual-Apps entwickelt, 180.000€ Fixkosten eliminiert – ohne externe Agentur, ohne Drittanbieter.
             </p>
-            <div class="flex flex-wrap gap-6">
-                <a href="impact.html" class="px-10 py-4 bg-sky-600 text-white font-bold rounded hover:bg-sky-500 transition shadow-lg shadow-sky-500/20 flex items-center gap-2">
-                    <i class="fa-solid fa-chart-line"></i> Impact-Analyse öffnen
+            <div class="flex flex-wrap gap-5 fade-up delay-3">
+                <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" target="_blank" class="px-10 py-4 bg-lime-400 text-slate-950 font-bold rounded hover:bg-lime-300 transition shadow-lg shadow-lime-400/20 flex items-center gap-2">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn-Profil ansehen
                 </a>
-                <a href="mailto:d.wenningmann@gmail.com" class="px-10 py-4 border border-slate-700 font-bold rounded hover:bg-slate-800 transition">Gespräch anfragen</a>
+                <a href="mailto:wenningmannt@up2summit.com" class="px-10 py-4 border border-slate-700 font-bold rounded hover:bg-slate-800 transition text-slate-300">
+                    Gespräch anfragen
+                </a>
             </div>
         </div>
     </header>
 
-    <section id="leadership" class="py-16 px-6">
+    <!-- STATS -->
+    <section class="py-20 bg-slate-900/30 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+                <div>
+                    <div class="stat-num mb-2">180K€</div>
+                    <div class="accent uppercase tracking-widest text-[10px] font-bold">Fixkosten eliminiert p.a.</div>
+                </div>
+                <div>
+                    <div class="stat-num mb-2">150+</div>
+                    <div class="accent uppercase tracking-widest text-[10px] font-bold">Mitarbeitende geführt</div>
+                </div>
+                <div>
+                    <div class="stat-num mb-2">30+</div>
+                    <div class="accent uppercase tracking-widest text-[10px] font-bold">Individual-Apps entwickelt</div>
+                </div>
+                <div>
+                    <div class="stat-num mb-2">8+ J.</div>
+                    <div class="accent uppercase tracking-widest text-[10px] font-bold">Operative Führung</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDATION: LUFTWAFFE -->
+    <section id="foundation" class="py-24 px-6">
         <div class="max-w-5xl mx-auto">
             <div class="military-badge p-8 md:p-12 rounded-r-2xl">
                 <div class="flex flex-col md:flex-row items-start gap-8">
-                    <div class="text-sky-500 text-6xl opacity-50">
+                    <div class="accent text-6xl opacity-40">
                         <i class="fa-solid fa-medal"></i>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tight italic">The Foundation: 10 Jahre Luftwaffe</h3>
+                        <p class="pill mb-4">Das Fundament</p>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-5 tracking-tight">10 Jahre Luftwaffe.<br>Die Basis für alles, was danach kam.</h3>
                         <p class="text-slate-300 text-lg leading-relaxed mb-6">
-                            Menschenführung ist das Fundament jeder Skalierung. Meine Führungskultur wurde in einem Jahrzehnt als militärischer Vorgesetzter und im Auslandseinsatz geschmiedet. 
-                            <strong>People First</strong> bedeutet für mich: Verantwortung übernehmen, wenn es darauf ankommt, und Prozesse so bauen, dass das Team gewinnen kann.
+                            Meine Führungskultur wurde nicht im Seminarraum entwickelt – sie wurde in einem Jahrzehnt als militärischer Vorgesetzter geschmiedet. Einsatzwache, Einsatzführungskompanie, Auslandseinsatz.
+                            <br><br>
+                            <strong class="text-white">People First</strong> bedeutet für mich: Verantwortung übernehmen wenn es zählt, klare Entscheidungen treffen wenn die Zeit drängt, und Strukturen bauen die Teams gewinnen lassen.
                         </p>
-                        <div class="flex flex-wrap gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
-                            <span><i class="fa-solid fa-check text-sky-500 mr-2"></i> Auslandserfahrung</span>
-                            <span><i class="fa-solid fa-check text-sky-500 mr-2"></i> Militärischer Vorgesetzter</span>
-                            <span><i class="fa-solid fa-shield-halved text-sky-500 mr-2"></i> Krisenfest</span>
+                        <div class="flex flex-wrap gap-5 text-xs font-bold uppercase tracking-widest text-slate-500">
+                            <span><i class="fa-solid fa-check accent mr-2"></i>Militärischer Vorgesetzter</span>
+                            <span><i class="fa-solid fa-check accent mr-2"></i>Auslandseinsatz absolviert</span>
+                            <span><i class="fa-solid fa-shield-halved accent mr-2"></i>Führung unter Druck</span>
+                            <span><i class="fa-solid fa-shield-halved accent mr-2"></i>Krisenfest & entscheidungsstark</span>
                         </div>
                     </div>
                 </div>
@@ -89,65 +154,159 @@
         </div>
     </section>
 
-    <section id="erfolge" class="py-20 bg-slate-900/30 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                <div>
-                    <div class="text-5xl font-extrabold text-white mb-2">> 180.000 €</div>
-                    <div class="text-sky-500 uppercase tracking-widest text-[10px] font-bold">Direkte Kostenersparnis p.a.</div>
-                </div>
-                <div>
-                    <div class="text-5xl font-extrabold text-white mb-2">6</div>
-                    <div class="text-sky-500 uppercase tracking-widest text-[10px] font-bold">Standorte operativ geleitet</div>
-                </div>
-                <div>
-                    <div class="text-5xl font-extrabold text-white mb-2">30h / Woche</div>
-                    <div class="text-sky-500 uppercase tracking-widest text-[10px] font-bold">Zeitgewinn durch Automatisierung</div>
-                </div>
+    <!-- SKILLS -->
+    <section id="skills" class="py-24 px-6 bg-slate-900/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="pill mb-4">Das Unicorn-Profil</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Drei Kompetenzen. Eine Person.</h2>
             </div>
-            <a href="impact.html" class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-sky-400 transition border-b border-slate-800 pb-2">
-                Detaillierte Case-Studies & Tool-Architektur einsehen <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div class="card p-10 rounded-2xl text-left">
+                    <i class="fa-solid fa-people-group text-4xl mb-6 accent"></i>
+                    <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Operative Führung</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm mb-6">
+                        Multi-Site-Management, dezentrale Führungsstrukturen, OKR & KPI-Systeme, Performance-Steuerung. Exzellenz entsteht durch Klarheit – nicht durch Kontrolle.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pill">150+ Mitarbeitende</span>
+                        <span class="pill">6 Standorte</span>
+                        <span class="pill">OKR / KPI</span>
+                    </div>
+                </div>
+
+                <div class="card p-10 rounded-2xl border-t-4 accent-border text-left">
+                    <i class="fa-solid fa-code text-4xl mb-6 accent"></i>
+                    <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Full-Stack Development</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm mb-6">
+                        React, Vite, Firebase, REST APIs, Webhooks. Ich entwickle geschäftskritische Software für mein eigenes Team – keine Spielereien, sondern produktive Infrastruktur die Kosten eliminiert.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pill">React · Vite</span>
+                        <span class="pill">Firebase</span>
+                        <span class="pill">REST API</span>
+                        <span class="pill">PWA</span>
+                    </div>
+                </div>
+
+                <div class="card p-10 rounded-2xl text-left">
+                    <i class="fa-solid fa-bolt text-4xl mb-6 accent"></i>
+                    <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Digitale Transformation</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm mb-6">
+                        Prozessarchitektur, Automatisierung, Zero-Paper-Initiativen, CRM-Design. Digitalisierung ist keine IT-Aufgabe – es ist eine Führungsaufgabe.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pill">Zapier · Make</span>
+                        <span class="pill">Power BI</span>
+                        <span class="pill">CRM-Design</span>
+                        <span class="pill">Automatisierung</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJEKTE -->
+    <section id="projekte" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="pill mb-4">Ausgewählte Projekte</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Was ich gebaut habe.</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div class="card p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-lg font-bold">LeadMaster CRM</h3>
+                        <span class="pill">React · Firebase</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Gamifiziertes Sales-Automation-Tool für Fitness-Filialbetriebe. Echtzeit-Kanban, API & Webhook-Integration. Ersetzt externe CRM-Anbieter vollständig.</p>
+                    <div class="flex items-center gap-2 text-xs text-slate-600">
+                        <i class="fa-solid fa-arrow-trend-up accent"></i>
+                        <span>Lead-to-Member Conversion signifikant gesteigert</span>
+                    </div>
+                </div>
+
+                <div class="card p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-lg font-bold">KPI-Dashboard</h3>
+                        <span class="pill">Power BI · Firebase</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Echtzeit-Steuerungstool für 6 Standorte. Datengetriebene Entscheidungsfindung statt Bauchgefühl – alle relevanten KPIs auf einen Blick.</p>
+                    <div class="flex items-center gap-2 text-xs text-slate-600">
+                        <i class="fa-solid fa-arrow-trend-up accent"></i>
+                        <span>Vollständige Transparenz über alle Standorte in Echtzeit</span>
+                    </div>
+                </div>
+
+                <div class="card p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-lg font-bold">Recruiting-Suite</h3>
+                        <span class="pill">Automatisierung</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Vollständig digitalisierter Recruiting-Prozess inkl. Landing Pages, automatisiertem Screening & Onboarding-Workflows. Zero Paper, maximale Effizienz.</p>
+                    <div class="flex items-center gap-2 text-xs text-slate-600">
+                        <i class="fa-solid fa-arrow-trend-up accent"></i>
+                        <span>Time-to-Hire deutlich reduziert</span>
+                    </div>
+                </div>
+
+                <div class="card p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-lg font-bold">Stickly – Team-App</h3>
+                        <span class="pill">PWA · React</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Team-Wertschätzungs-App mit Bulk-Upload, Multi-Location-Hub & TV-Show-Modus. Mitarbeiterbindung durch sichtbare Anerkennung.</p>
+                    <div class="flex items-center gap-2 text-xs text-slate-600">
+                        <i class="fa-solid fa-arrow-trend-up accent"></i>
+                        <span>Retention um 7% verbessert durch systemgetriebenes Engagement</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT I LOOK FOR -->
+    <section class="py-20 px-6 bg-slate-900/30 border-y border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="pill mb-6">Was ich suche</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-8 leading-tight">
+                Eine Führungsrolle, die<br>
+                <span class="gradient-text">Gestaltungsfreiheit lebt.</span>
+            </h2>
+            <p class="text-slate-400 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+                VP- oder COO-Ebene. Modernes Unternehmen, das digital denkt und menschlich führt. Raum Stuttgart, max. 1,5h. Remote-Anteil willkommen. Ich bringe nicht nur Führungserfahrung – ich bringe die technische Souveränität, Lösungen selbst umzusetzen.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <span><i class="fa-solid fa-check accent mr-2"></i>Gestaltungsfreiheit</span>
+                <span><i class="fa-solid fa-check accent mr-2"></i>Modernes Führungsverständnis</span>
+                <span><i class="fa-solid fa-check accent mr-2"></i>Digitale Denke auf C-Level</span>
+                <span><i class="fa-solid fa-check accent mr-2"></i>People-First-Kultur</span>
+                <span><i class="fa-solid fa-check accent mr-2"></i>Raum Stuttgart · max. 1,5h</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CTA -->
+    <footer class="py-32 bg-slate-950 text-center border-t border-white/5">
+        <p class="accent font-mono text-sm mb-4 uppercase tracking-widest">Offen für strategische Gespräche – auch diskret.</p>
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-12 tracking-tighter">
+            Bereit für<br>
+            <span class="gradient-text">die nächste Ebene?</span>
+        </h2>
+        <a href="mailto:wenningmannt@up2summit.com" class="text-xl md:text-2xl font-bold text-white hover:text-lime-400 transition underline underline-offset-8 decoration-lime-400">
+            wenningmannt@up2summit.com
+        </a>
+        <div class="mt-6">
+            <a href="https://www.linkedin.com/in/david-wenningmann-071b01221" target="_blank" class="inline-flex items-center gap-2 text-slate-500 hover:text-sky-400 transition text-sm font-bold uppercase tracking-widest mt-4">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn-Profil
             </a>
         </div>
-    </section>
-
-    <section id="tech" class="py-24 px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-20 uppercase tracking-[0.2em]">The Unicorn Skillset</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card p-10 rounded-2xl text-left">
-                    <i class="fa-solid fa-tower-broadcast text-sky-500 text-4xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4 uppercase">Strategic Ops</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm italic">
-                        Skalierung von Multi-Site-Strukturen, Prozess-Optimierung und operative Exzellenz. Effizienz ist das Ergebnis disziplinierter Führung.
-                    </p>
-                </div>
-                <div class="card p-10 rounded-2xl border-t-4 border-t-sky-500 text-left">
-                    <i class="fa-solid fa-microchip text-sky-500 text-4xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4 uppercase">No-Code Dev</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm italic">
-                        Eigenentwicklung von Recruiting-Tools, Lead-Management und Dashboards. Ich baue die Software, die teure Drittanbieter ersetzt.
-                    </p>
-                </div>
-                <div class="card p-10 rounded-2xl text-left">
-                    <i class="fa-solid fa-bullseye text-sky-500 text-4xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4 uppercase">Performance</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm italic">
-                        Sales Funnels & OMP. Marketing ist kein "Gefühl", sondern ein automatisierter Prozess zur Neukundengewinnung.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-32 bg-slate-950 text-center border-t border-white/5">
-        <p class="text-sky-500 font-mono text-sm mb-4 uppercase tracking-widest">Bereit für den nächsten Einsatz?</p>
-        <h2 class="text-4xl md:text-6xl font-extrabold mb-12 tracking-tighter italic">Mission Accomplished? <br> Let's Talk.</h2>
-        <a href="mailto:d.wenningmann@gmail.com" class="text-xl md:text-3xl font-bold text-white hover:text-sky-400 transition underline underline-offset-8 decoration-sky-500">
-            d.wenningmann@gmail.com
-        </a>
-        <div class="mt-24 text-slate-600 text-[10px] uppercase tracking-[0.4em]">
-            &copy; 2026 | D. Wenningmann | Tactical Operations & Digital Architecture
+        <div class="mt-24 text-slate-700 text-[10px] uppercase tracking-[0.4em]">
+            &copy; 2026 | David Wenningmann | VP Operations & Digital Transformation
         </div>
     </footer>
 
