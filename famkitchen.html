@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>famKüche — Die KI-Küche für Familien</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&display=swap');
+
+  :root {
+    --linen:   #F5F1EB;
+    --green:   #1B5235;
+    --orange:  #FF4F00;
+    --text:    #1C1814;
+    --muted:   #7A6D63;
+    --border:  #ECE8E0;
+    --blue:    #0D5EAF;
+    --white:   #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--linen);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,241,235,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 1.25rem; font-weight: 900; font-style: italic;
+    letter-spacing: -0.04em; color: var(--text);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-pill {
+    background: var(--green); color: white;
+    padding: 0.5rem 1.25rem; border-radius: 2rem;
+    font-size: 0.75rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    text-decoration: none; cursor: pointer;
+    border: none; transition: opacity 0.2s;
+  }
+  .nav-pill:hover { opacity: 0.85; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 2rem; max-width: 1080px; margin: 0 auto; }
+  .full-bleed { max-width: none; padding-left: 0; padding-right: 0; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center;
+    padding: 4rem 2rem 6rem;
+    max-width: none; margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: white; border: 1px solid var(--border);
+    border-radius: 2rem; padding: 0.4rem 1rem;
+    font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--muted); margin-bottom: 2rem;
+  }
+  .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 900; font-style: italic;
+    letter-spacing: -0.04em; line-height: 0.95;
+    color: var(--text); max-width: 900px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 .accent { color: var(--green); }
+  .hero h1 .accent-o { color: var(--orange); }
+  .hero-sub {
+    font-size: 1.15rem; color: var(--muted); font-weight: 500;
+    max-width: 560px; margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; }
+  .btn-primary {
+    background: var(--green); color: white;
+    padding: 1rem 2rem; border-radius: 2rem;
+    font-size: 0.875rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: transform 0.15s, opacity 0.2s;
+  }
+  .btn-primary:hover { transform: scale(1.03); opacity: 0.9; }
+  .btn-secondary {
+    background: white; color: var(--text);
+    border: 1.5px solid var(--border);
+    padding: 1rem 2rem; border-radius: 2rem;
+    font-size: 0.875rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    text-decoration: none; cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--text); }
+
+  /* hero stats bar */
+  .hero-stats {
+    display: flex; gap: 0; border-radius: 2rem; overflow: hidden;
+    border: 1px solid var(--border); background: white;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .hero-stat {
+    padding: 1.25rem 2.5rem; text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat-num {
+    font-size: 2rem; font-weight: 900; font-style: italic;
+    letter-spacing: -0.04em; color: var(--text); line-height: 1;
+  }
+  .hero-stat-num .unit { font-size: 1.1rem; color: var(--muted); }
+  .hero-stat-label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-top: 0.25rem; }
+
+  /* ── PROBLEM ── */
+  .problem-band {
+    background: var(--text); padding: 5rem 2rem;
+  }
+  .problem-inner { max-width: 1080px; margin: 0 auto; }
+  .problem-band h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900; font-style: italic;
+    letter-spacing: -0.04em; color: white;
+    margin-bottom: 3rem; max-width: 700px;
+  }
+  .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .problem-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2rem; padding: 2rem;
+  }
+  .problem-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .problem-card h3 { color: white; font-size: 1rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .problem-card p { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.6; }
+
+  /* ── SOLUTION / PRODUCT ── */
+  .label {
+    font-size: 0.65rem; font-weight: 900; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--muted); margin-bottom: 1rem;
+  }
+  h2.section-title {
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; font-style: italic;
+    letter-spacing: -0.04em; margin-bottom: 1rem; line-height: 1.05;
+  }
+  .section-sub { color: var(--muted); font-size: 1rem; max-width: 520px; line-height: 1.7; margin-bottom: 3rem; }
+
+  /* Phone mockup */
+  .product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .phone-mock {
+    width: 280px; height: 560px; background: var(--text);
+    border-radius: 3rem; padding: 1.5rem 1rem;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.08);
+    position: relative; margin: 0 auto;
+  }
+  .phone-screen {
+    width: 100%; height: 100%; background: var(--linen);
+    border-radius: 2rem; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .phone-header {
+    background: var(--linen); padding: 1rem 1rem 0.5rem;
+  }
+  .phone-greeting { font-size: 0.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); }
+  .phone-name { font-size: 1.4rem; font-weight: 900; font-style: italic; letter-spacing: -0.03em; color: var(--text); }
+  .phone-badge {
+    display: inline-flex; gap: 0; border-radius: 2rem; overflow: hidden; margin-top: 0.25rem;
+    border: 1px solid rgba(13,94,175,0.2);
+  }
+  .phone-badge-l { background: var(--blue); padding: 0.2rem 0.5rem; font-size: 0.55rem; }
+  .phone-badge-r { background: white; padding: 0.2rem 0.5rem; font-size: 0.55rem; font-weight: 900; color: var(--text); }
+  .phone-quote-card {
+    margin: 0.5rem 0.75rem; background: var(--green);
+    border-radius: 1rem; padding: 0.75rem;
+  }
+  .phone-quote-label { font-size: 0.38rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(167,243,208,0.6); margin-bottom: 0.25rem; }
+  .phone-quote-text { font-size: 0.5rem; font-style: italic; color: white; line-height: 1.5; }
+  .phone-stats-row { display: flex; gap: 0.5rem; padding: 0 0.75rem 0.5rem; }
+  .phone-stat-chip {
+    flex: 1; background: white; border: 1px solid var(--border);
+    border-radius: 0.75rem; padding: 0.4rem 0.5rem;
+    font-size: 0.38rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
+  }
+  .phone-stat-chip .val { font-size: 0.9rem; font-weight: 900; font-style: italic; color: var(--text); display: block; }
+  .phone-day-list { padding: 0 0.75rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .phone-day-item {
+    background: white; border: 1px solid var(--border);
+    border-radius: 0.75rem; padding: 0.5rem 0.75rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .phone-day-dot { font-size: 0.9rem; }
+  .phone-day-label { font-size: 0.38rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  .phone-day-recipe { font-size: 0.55rem; font-weight: 800; color: var(--text); }
+
+  /* feature list */
+  .feature-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .feature-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .feature-icon {
+    width: 44px; height: 44px; border-radius: 1rem; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem;
+  }
+  .fi-green { background: #E8F5EE; }
+  .fi-orange { background: #FFF0EB; }
+  .fi-blue { background: #EBF2FC; }
+  .fi-purple { background: #F3EEFF; }
+  .feature-item h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.2rem; }
+  .feature-item p { font-size: 0.825rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── MARKET ── */
+  .market-band { background: var(--green); padding: 5rem 2rem; }
+  .market-inner { max-width: 1080px; margin: 0 auto; }
+  .market-band .label { color: rgba(167,243,208,0.7); }
+  .market-band h2 { color: white; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; font-style: italic; letter-spacing: -0.04em; margin-bottom: 3rem; }
+  .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .market-card {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 2rem; padding: 2rem; text-align: center;
+  }
+  .market-card-label { font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(167,243,208,0.6); margin-bottom: 0.75rem; }
+  .market-card-num { font-size: 2.5rem; font-weight: 900; font-style: italic; letter-spacing: -0.04em; color: white; line-height: 1; }
+  .market-card-sub { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 0.5rem; line-height: 1.5; }
+
+  /* ── BMODEL ── */
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .pricing-card {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 2rem; padding: 2rem; position: relative;
+  }
+  .pricing-card.featured { border-color: var(--green); background: var(--green); color: white; }
+  .pricing-badge {
+    position: absolute; top: -1px; right: 1.5rem;
+    background: var(--orange); color: white;
+    font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em;
+    padding: 0.3rem 0.75rem; border-radius: 0 0 0.75rem 0.75rem;
+  }
+  .pricing-tier { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.75rem; }
+  .pricing-card:not(.featured) .pricing-tier { color: var(--muted); }
+  .pricing-card.featured .pricing-tier { color: rgba(167,243,208,0.7); }
+  .pricing-price { font-size: 2.5rem; font-weight: 900; font-style: italic; letter-spacing: -0.04em; line-height: 1; }
+  .pricing-card:not(.featured) .pricing-price { color: var(--text); }
+  .pricing-mo { font-size: 0.8rem; font-weight: 600; margin-left: 0.25rem; }
+  .pricing-card:not(.featured) .pricing-mo { color: var(--muted); }
+  .pricing-card.featured .pricing-mo { color: rgba(255,255,255,0.6); }
+  .pricing-desc { font-size: 0.8rem; margin: 1rem 0; line-height: 1.6; }
+  .pricing-card:not(.featured) .pricing-desc { color: var(--muted); }
+  .pricing-card.featured .pricing-desc { color: rgba(255,255,255,0.7); }
+  .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .pricing-features li { font-size: 0.8rem; display: flex; gap: 0.5rem; align-items: flex-start; }
+  .pricing-card:not(.featured) .pricing-features li { color: var(--muted); }
+  .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.8); }
+  .pricing-features li::before { content: '✓'; font-weight: 900; color: var(--green); flex-shrink: 0; }
+  .pricing-card.featured .pricing-features li::before { color: #86EFAC; }
+
+  /* ── TRACTION ── */
+  .traction-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .traction-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 2rem; padding: 2rem;
+  }
+  .traction-num { font-size: 2.5rem; font-weight: 900; font-style: italic; letter-spacing: -0.04em; color: var(--orange); line-height: 1; }
+  .traction-label { font-size: 0.7rem; font-weight: 700; color: var(--muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .traction-sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+  /* ── TECH ── */
+  .tech-chips { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .tech-chip {
+    background: white; border: 1px solid var(--border);
+    border-radius: 2rem; padding: 0.5rem 1.25rem;
+    font-size: 0.75rem; font-weight: 700; color: var(--text);
+  }
+
+  /* ── TEAM ── */
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .team-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 2rem; padding: 2rem;
+  }
+  .team-avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--green); display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 1rem;
+  }
+  .team-name { font-size: 1rem; font-weight: 800; margin-bottom: 0.25rem; }
+  .team-role { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange); margin-bottom: 0.75rem; }
+  .team-bio { font-size: 0.825rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: var(--text); text-align: center; padding: 6rem 2rem;
+  }
+  .cta-band h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; font-style: italic;
+    letter-spacing: -0.04em; color: white; margin-bottom: 1.5rem; line-height: 1;
+  }
+  .cta-band p { color: rgba(255,255,255,0.55); font-size: 1rem; margin-bottom: 2.5rem; }
+  .cta-email-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .cta-email-input {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 2rem; padding: 0.875rem 1.5rem; color: white;
+    font-size: 0.9rem; font-family: inherit; width: 300px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .cta-email-input::placeholder { color: rgba(255,255,255,0.35); }
+  .cta-email-input:focus { border-color: var(--orange); }
+  .btn-orange {
+    background: var(--orange); color: white; border: none;
+    padding: 0.875rem 2rem; border-radius: 2rem; cursor: pointer;
+    font-size: 0.875rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+    font-family: inherit; transition: opacity 0.2s;
+  }
+  .btn-orange:hover { opacity: 0.88; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--linen); border-top: 1px solid var(--border);
+    text-align: center; padding: 2rem;
+    font-size: 0.75rem; color: var(--muted);
+  }
+  .footer-logo { font-weight: 900; font-style: italic; color: var(--text); }
+
+  /* ── UTIL ── */
+  .text-center { text-align: center; }
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .divider { border: none; border-top: 1px solid var(--border); }
+
+  @media (max-width: 720px) {
+    .product-layout { grid-template-columns: 1fr; }
+    .market-grid { grid-template-columns: 1fr; }
+    .phone-mock { width: 240px; height: 480px; }
+    .hero-stats { flex-direction: column; border-radius: 1.5rem; }
+    .hero-stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-stat:last-child { border-bottom: none; }
+    nav { padding: 0 1rem; }
+    section { padding: 4rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🍽️ fam<span>Küche</span></div>
+  <a href="#invest" class="nav-pill">Für Investoren</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero full-bleed">
+  <div class="hero-eyebrow">
+    <div class="dot"></div>
+    Familienküche neu gedacht · KI-gestützt · €0–2/Monat Betrieb
+  </div>
+  <h1>Die <span class="accent">Küche,</span><br/>die mitdenkt.<span class="accent-o">.</span></h1>
+  <p class="hero-sub">
+    famKüche plant den Wochenmenüplan für die ganze Familie — mit KI, individuellen Portionsgrößen, automatischer Einkaufsliste und Kalorien-Tracking. Für €4.99/Monat.
+  </p>
+  <div class="hero-cta-row">
+    <a href="#invest" class="btn-primary">Investoren-Pitch ansehen</a>
+    <a href="#product" class="btn-secondary">Produkt kennenlernen</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">26<span class="unit">Mio.</span></div>
+      <div class="hero-stat-label">Familienhaushalte DE/AT/CH</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">~21<span class="unit">×</span></div>
+      <div class="hero-stat-label">„Was kochen wir?" pro Monat</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">€4.99</div>
+      <div class="hero-stat-label">Einstiegspreis Familie</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">&lt;€2</div>
+      <div class="hero-stat-label">Serverkosten / Haushalt / Monat</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<div class="problem-band full-bleed">
+  <div class="problem-inner">
+    <h2>Jede Familie hat dieselben 3 Probleme.</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">😩</div>
+        <h3>„Was kochen wir heute?"</h3>
+        <p>Families spend an average of 40 minutes per week just deciding what to cook — before even starting. Mental Load, jeden Tag.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🛒</div>
+        <h3>Unkoordinierte Einkäufe</h3>
+        <p>Fehlende Zutaten, doppelte Käufe, verdorbene Lebensmittel. Deutsche Haushalte werfen jährlich €200–400 an Lebensmitteln weg.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🥗</div>
+        <h3>Ernährungsziele scheitern</h3>
+        <p>Kalorienziele, Makros, Portionsgrößen — für jedes Familienmitglied anders. Kein Tool denkt das gemeinsam.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT -->
+<section id="product">
+  <p class="label">Das Produkt</p>
+  <h2 class="section-title">Nicht noch eine Rezept-App.<br/>Eine Familienküchen-Plattform.</h2>
+  <p class="section-sub">famKüche kennt eure Familie: wer was verträgt, wer Kalorien trackt, wer Reste mitnimmt. Die KI plant die Woche. Automatisch.</p>
+  <div class="product-layout">
+    <!-- Phone Mockup -->
+    <div class="phone-mock">
+      <div class="phone-screen">
+        <div class="phone-header">
+          <div class="phone-greeting">Guten Abend 👋</div>
+          <div class="phone-name">David</div>
+          <div class="phone-badge">
+            <div class="phone-badge-l">🇬🇷</div>
+            <div class="phone-badge-r">A❤️³</div>
+          </div>
+        </div>
+        <div class="phone-quote-card">
+          <div class="phone-quote-label">Zitat des Tages</div>
+          <div class="phone-quote-text">„Ψωμί, αλάτι και καλή καρδιά."<br/><span style="opacity:.65">Brot, Salz und ein gutes Herz.</span></div>
+        </div>
+        <div class="phone-stats-row">
+          <div class="phone-stat-chip"><span class="val">5</span>Geplant /7</div>
+          <div class="phone-stat-chip"><span class="val" style="color:#FF4F00">3🔥</span>Streak</div>
+          <div class="phone-stat-chip" style="background:#FF4F00; border-color:#FF4F00; color:white"><span class="val" style="color:white">DI</span>Heute</div>
+        </div>
+        <div class="phone-day-list">
+          <div class="phone-day-item">
+            <div class="phone-day-dot">🥗</div>
+            <div><div class="phone-day-label">Mo</div><div class="phone-day-recipe">Griechischer Salat</div></div>
+          </div>
+          <div class="phone-day-item" style="border-color:#FF4F00; background:#FFF6F3">
+            <div class="phone-day-dot">🫙</div>
+            <div><div class="phone-day-label">Di · Heute</div><div class="phone-day-recipe">Fasolada</div></div>
+          </div>
+          <div class="phone-day-item">
+            <div class="phone-day-dot">🐟</div>
+            <div><div class="phone-day-label">Mi</div><div class="phone-day-recipe">Lachs mit Quinoa</div></div>
+          </div>
+          <div class="phone-day-item">
+            <div class="phone-day-dot">🥬</div>
+            <div><div class="phone-day-label">Do</div><div class="phone-day-recipe">Pasta Primavera</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-icon fi-green">🤖</div>
+        <div>
+          <h3>KI-Wochenplan in Sekunden</h3>
+          <p>Gemini 2.5 Flash generiert einen auf die Familie abgestimmten 7-Tage-Plan — mit Wiederholungsschutz, Saisonalität und Kochzeit-Limit.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon fi-orange">📐</div>
+        <div>
+          <h3>Individuelle Portionen & Makros</h3>
+          <p>Jedes Familienmitglied bekommt exakte Gramm-Angaben für seine Kalorienstufe — auch mittendrin schaltbar.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon fi-blue">🛒</div>
+        <div>
+          <h3>Einkaufsliste in Supermarkt-Reihenfolge</h3>
+          <p>Automatisch sortiert nach dem typischen Laufweg (Gemüse → Fleisch → Kühl → Trockenwaren). Keine vergessenen Gänge mehr.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon fi-purple">📸</div>
+        <div>
+          <h3>Foto-Import & Resteverwertung</h3>
+          <p>Rezept aus Kochbuch fotografieren → KI extrahiert alles. Kühlschrank leertippen → KI schlägt ein passendes Gericht vor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- MARKET -->
+<div class="market-band full-bleed" id="invest">
+  <div class="market-inner">
+    <p class="label">Marktpotenzial</p>
+    <h2>Ein Alltagsproblem.<br/>Hunderte Millionen Familien.</h2>
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-card-label">TAM · Global</div>
+        <div class="market-card-num">€12Mrd.</div>
+        <div class="market-card-sub">Meal Planning & Ernährungs-Apps weltweit (2025, Mordor Intelligence)</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-label">SAM · DACH + UK + NL</div>
+        <div class="market-card-num">€680Mio.</div>
+        <div class="market-card-sub">~34 Mio. Familienhaushalte, €2/Monat ARPU-Konservativschätzung</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-label">SOM · Jahr 3 Ziel</div>
+        <div class="market-card-num">€6Mio.</div>
+        <div class="market-card-sub">100.000 Abonnenten @ Ø €5/Monat — realistisch mit organischem Growth</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUSINESS MODEL -->
+<section>
+  <p class="label">Business Model</p>
+  <h2 class="section-title">Einfaches SaaS-Abo.<br/>Hoher Retention-Pull.</h2>
+  <p class="section-sub">Familien wechseln nicht — der Plan, die Rezepte, die Gewohnheiten sind eingearbeitet. Churn ist strukturell niedrig.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-tier">Free</div>
+      <div class="pricing-price">€0<span class="pricing-mo">/Monat</span></div>
+      <div class="pricing-desc">Einstieg ohne Risiko. Genug um den Wert zu spüren.</div>
+      <ul class="pricing-features">
+        <li>3 KI-Pläne pro Monat</li>
+        <li>1 Haushalt, bis 4 Personen</li>
+        <li>Basis-Einkaufsliste</li>
+        <li>Kein Foto-Import</li>
+      </ul>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Beliebt</div>
+      <div class="pricing-tier">Familie</div>
+      <div class="pricing-price">€4.99<span class="pricing-mo">/Monat</span></div>
+      <div class="pricing-desc">Alles unlimitiert. Das echte famKüche-Erlebnis.</div>
+      <ul class="pricing-features">
+        <li>Unlimitierte KI-Pläne & Rerolls</li>
+        <li>Foto-Import (Gemini Vision)</li>
+        <li>Statistiken & Koch-Streak</li>
+        <li>Meal Prep Analyse</li>
+        <li>Resteverwertung</li>
+      </ul>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-tier">Familie+</div>
+      <div class="pricing-price">€7.99<span class="pricing-mo">/Monat</span></div>
+      <div class="pricing-desc">Für Familien mit aktiven Ernährungszielen.</div>
+      <ul class="pricing-features">
+        <li>Alles aus Familie</li>
+        <li>Detailliertes Makro-Tracking</li>
+        <li>Lunchbox-Modus</li>
+        <li>Multi-Haushalt (z.B. Oma einladen)</li>
+        <li>Priority Support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TRACTION -->
+<section style="padding-top:0">
+  <p class="label">Traction</p>
+  <h2 class="section-title">Gebaut. Läuft. Live.</h2>
+  <p class="section-sub">famKüche ist keine PowerPoint. Es ist eine vollständige, produktionsreife PWA — im echten Familieneinsatz getestet.</p>
+  <div class="traction-grid">
+    <div class="traction-card">
+      <div class="traction-num">100%</div>
+      <div class="traction-label">Fertiggestellt</div>
+      <div class="traction-sub">Vollständige PWA, Firebase, Cloud Functions</div>
+    </div>
+    <div class="traction-card">
+      <div class="traction-num">&lt;€0.50</div>
+      <div class="traction-label">Serverkosten / Haushalt</div>
+      <div class="traction-sub">Dank Gemini Flash + Firebase Free Tier</div>
+    </div>
+    <div class="traction-card">
+      <div class="traction-num">6+</div>
+      <div class="traction-label">KI-Features live</div>
+      <div class="traction-sub">Plan, Reroll, Foto, Reste, Meal Prep, Dessert</div>
+    </div>
+    <div class="traction-card">
+      <div class="traction-num">0</div>
+      <div class="traction-label">Externe Abhängigkeiten</div>
+      <div class="traction-sub">Kein teures API-Gateway, kein Vendor Lock-in</div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section style="padding-top:0">
+  <p class="label">Tech Stack</p>
+  <h2 class="section-title">Modern. Skalierbar.<br/>Low-Cost.</h2>
+  <p class="section-sub">Aufgebaut auf bewährten Plattformen — skaliert von 10 auf 100.000 Haushalte ohne Architekturwechsel.</p>
+  <div class="tech-chips">
+    <div class="tech-chip">⚛️ React 19 + Vite</div>
+    <div class="tech-chip">🔥 Firebase Firestore</div>
+    <div class="tech-chip">🔐 Firebase Auth (Google SSO)</div>
+    <div class="tech-chip">☁️ Cloud Functions v2</div>
+    <div class="tech-chip">🤖 Gemini 2.5 Flash</div>
+    <div class="tech-chip">📸 Gemini Vision</div>
+    <div class="tech-chip">📱 PWA (Installierbar)</div>
+    <div class="tech-chip">🇪🇺 europe-west3</div>
+    <div class="tech-chip">🎨 Tailwind CSS</div>
+    <div class="tech-chip">✨ Framer Motion</div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ROADMAP -->
+<section>
+  <p class="label">Roadmap</p>
+  <h2 class="section-title">Von der Familie<br/>in den Markt.</h2>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-tier" style="color:var(--green)">Phase 1 · Jetzt</div>
+      <div class="pricing-price" style="font-size:1.5rem; color:var(--text)">MVP Live ✓</div>
+      <div class="pricing-desc">Vollständiges Produkt, 1 Pilothaushalt, alle Core-Features aktiv.</div>
+      <ul class="pricing-features">
+        <li>KI-Wochenplanung</li>
+        <li>Einkaufsliste + Sortierung</li>
+        <li>Statistiken + PWA</li>
+      </ul>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-tier">Phase 2 · Q3 2026</div>
+      <div class="pricing-price" style="font-size:1.5rem">Early Access</div>
+      <div class="pricing-desc">50–200 Beta-Familien, Stripe-Abo, App-Store-Listing via Capacitor.</div>
+      <ul class="pricing-features">
+        <li>Stripe + RevenueCat</li>
+        <li>Native iOS/Android Shell</li>
+        <li>Englische Lokalisierung</li>
+        <li>Onboarding-Flow optimiert</li>
+      </ul>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-tier">Phase 3 · 2027</div>
+      <div class="pricing-price" style="font-size:1.5rem; color:var(--text)">Scale</div>
+      <div class="pricing-desc">5.000+ zahlende Familien, DACH-Markt durchdringen, EN-Expansion.</div>
+      <ul class="pricing-features">
+        <li>Push Notifications</li>
+        <li>Supermarkt-API Integration</li>
+        <li>B2B (Krankenkassen, HR-Benefits)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section style="padding-top:0">
+  <p class="label">Gründer</p>
+  <h2 class="section-title">Gebaut von jemandem,<br/>der das Problem lebt.</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">👨‍💻</div>
+      <div class="team-name">David Wenningmann</div>
+      <div class="team-role">Founder & Entwickler</div>
+      <div class="team-bio">Hat famKüche gebaut, weil seine eigene Familie täglich dasselbe Problem hatte. Vollständige App von 0 auf Live in Wochen — Engineering, Design, KI-Prompting.</div>
+    </div>
+    <div class="team-card" style="background: var(--linen); border-style: dashed;">
+      <div class="team-avatar" style="background: var(--linen); border: 2px dashed var(--border);">+</div>
+      <div class="team-name" style="color:var(--muted)">CTO / Growth</div>
+      <div class="team-role">Offen · Suche aktiv</div>
+      <div class="team-bio" style="color:var(--muted)">Wir suchen eine zweite Person mit Stärken in Marketing/Growth oder Mobile-Entwicklung. Equity-basiert.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band full-bleed" id="contact">
+  <h2>Interesse?<br/>Schreib uns.</h2>
+  <p>Ob Investor, Angel, Partner oder einfach neugierig — wir freuen uns über den Austausch.</p>
+  <div class="cta-email-row">
+    <a href="mailto:d.wenningmann@gmail.com" class="btn-orange" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem">
+      ✉️ d.wenningmann@gmail.com
+    </a>
+  </div>
+  <p style="margin-top:1.5rem; font-size:0.8rem; color:rgba(255,255,255,0.3)">
+    famKüche · Berlin · famkueche.app
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">🍽️ famKüche</span> &nbsp;·&nbsp;
+  A❤️³ &nbsp;·&nbsp; 🇬🇷 &nbsp;·&nbsp;
+  Gebaut mit ❤️ für Familien überall &nbsp;·&nbsp;
+  &copy; 2026 David Wenningmann
+</footer>
+
+</body>
+</html>
