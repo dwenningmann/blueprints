@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE ROADMAP • FREEDOM & IMPACT</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@500;700;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Cinzel"', 'serif'],
+          },
+          colors: {
+            gold: {
+              300: '#f9e7b9',
+              400: '#e5c378',
+              500: '#d4af37',
+              600: '#b89025',
+              700: '#8c6b12',
+            },
+            emerald: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              900: '#064e3b',
+              950: '#022c22',
+            },
+            dark: {
+              950: '#07090e',
+              900: '#0d1117',
+              850: '#131822',
+              800: '#1a2232',
+              750: '#212b3e',
+              700: '#2a374f',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar & Aesthetics */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d1117;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a374f;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d4af37;
+    }
+    .glass-card {
+      background: rgba(19, 24, 34, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(212, 175, 55, 0.14);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(212, 175, 55, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.12);
+      transform: translateY(-2px);
+    }
+    .gold-glow {
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+    }
+    .slider-thumb::-webkit-slider-thumb {
+      appearance: none;
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+      background: #d4af37;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+      border: 2px solid #0d1117;
+    }
+    .slider-thumb::-moz-range-thumb {
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+      background: #d4af37;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+      border: 2px solid #0d1117;
+    }
+    @media print {
+      body {
+        background: #000 !important;
+        color: #fff !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-dark-950 text-slate-200 font-sans selection:bg-gold-500 selection:text-dark-950 min-h-screen">
+
+  <!-- Background Ambient Glows -->
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-0 right-1/4 w-[30rem] h-[30rem] bg-emerald-500/10 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+
+  <!-- Main Wrapper -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+    <!-- Top Navigation Bar -->
+    <header class="flex flex-col sm:flex-row justify-between items-center pb-6 border-b border-slate-800/80 gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-dark-950 font-bold shadow-lg shadow-gold-500/20">
+          <i class="fa-solid fa-compass text-lg"></i>
+        </div>
+        <div>
+          <span class="text-xs font-semibold tracking-widest uppercase text-gold-400">Master Blueprint</span>
+          <h1 class="text-lg font-bold text-white tracking-tight">FREEDOM & IMPACT DASHBOARD</h1>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-3 no-print">
+        <button onclick="window.print()" class="px-4 py-2 text-xs font-semibold rounded-lg bg-dark-850 hover:bg-dark-800 text-slate-300 border border-slate-700/80 transition flex items-center gap-2">
+          <i class="fa-solid fa-print text-gold-400"></i> Vision Poster
+        </button>
+        <button onclick="resetMilestones()" class="px-4 py-2 text-xs font-semibold rounded-lg bg-dark-850 hover:bg-rose-950/40 text-slate-400 hover:text-rose-400 border border-slate-700/80 transition flex items-center gap-2">
+          <i class="fa-solid fa-rotate-left"></i> Reset
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Header / Cockpit Status -->
+    <section class="glass-card rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+          B2B Productized Retainer Engine
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
+          THE ROADMAP <span class="text-gold-400 gold-glow">•</span> FREEDOM
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+          „Erst die Werkzeuge und das Fundament, die Geld einspielen. Systeme arbeiten 24/7 – das Leben gehört uns.“
+        </p>
+      </div>
+
+      <!-- Live KPI Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-slate-800/80">
+        <div class="p-4 rounded-2xl bg-dark-900/60 border border-slate-800">
+          <span class="text-xs font-medium text-slate-400 block mb-1">Modell / Retainer</span>
+          <div class="text-xl sm:text-2xl font-bold text-white flex items-baseline gap-1">
+            2.000 € <span class="text-xs text-gold-400 font-normal">netto / m</span>
+          </div>
+          <span class="text-[11px] text-slate-500 mt-1 block">12-Monats-Verträge</span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-dark-900/60 border border-slate-800">
+          <span class="text-xs font-medium text-slate-400 block mb-1">Target Endstufe</span>
+          <div class="text-xl sm:text-2xl font-bold text-gold-400 flex items-baseline gap-1">
+            1.000.000 € <span class="text-xs text-slate-400 font-normal">ARR</span>
+          </div>
+          <span class="text-[11px] text-emerald-400 mt-1 block">Exakt 42 Retainer</span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-dark-900/60 border border-slate-800">
+          <span class="text-xs font-medium text-slate-400 block mb-1">Täglicher Takt</span>
+          <div class="text-xl sm:text-2xl font-bold text-white flex items-baseline gap-1">
+            50 – 100 <span class="text-xs text-slate-400 font-normal">Outreach</span>
+          </div>
+          <span class="text-[11px] text-slate-500 mt-1 block">5–6% Antwort-Pipeline</span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-dark-900/60 border border-slate-800">
+          <span class="text-xs font-medium text-slate-400 block mb-1">Meilenstein Score</span>
+          <div class="text-xl sm:text-2xl font-bold text-emerald-400 flex items-baseline gap-1" id="globalProgressPercent">
+            0%
+          </div>
+          <span class="text-[11px] text-slate-500 mt-1 block" id="globalProgressCount">0 von 15 Zielen erreicht</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Client & Cashflow Simulator -->
+    <section class="glass-card rounded-3xl p-6 sm:p-8 space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold tracking-widest uppercase text-gold-400">Interaktiver Skalierungs-Simulator</span>
+          <h3 class="text-2xl font-bold text-white mt-1">Aktive Kunden vs. Freigeschaltetes Leben</h3>
+          <p class="text-slate-400 text-sm">Bewege den Regler, um zu sehen, was ab welchem Kundenbestand entspannt möglich ist.</p>
+        </div>
+        <div class="flex items-center gap-4 bg-dark-900 px-5 py-3 rounded-2xl border border-slate-800">
+          <div class="text-right">
+            <span class="text-[11px] text-slate-400 uppercase font-semibold block">Monatlicher Umsatz</span>
+            <span class="text-xl font-bold text-gold-400" id="simMrr">16.000 €</span>
+          </div>
+          <div class="h-8 w-px bg-slate-800"></div>
+          <div class="text-right">
+            <span class="text-[11px] text-slate-400 uppercase font-semibold block">Dein Privat-Netto</span>
+            <span class="text-xl font-bold text-emerald-400" id="simNetto">~4.500 €</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Input -->
+      <div class="space-y-2">
+        <div class="flex justify-between text-xs font-semibold text-slate-400">
+          <span>1 Kunde (Start)</span>
+          <span class="text-gold-400 font-bold text-base" id="clientCountLabel">8 Aktive Kunden</span>
+          <span>25 Kunden (50k MRR)</span>
+        </div>
+        <input type="range" id="clientSlider" min="1" max="25" value="8" step="1" 
+          class="w-full h-3 bg-dark-850 rounded-lg appearance-none cursor-pointer slider-thumb border border-slate-800">
+      </div>
+
+      <!-- Unlocked Dynamic State Box -->
+      <div id="simUnlockedCard" class="p-5 rounded-2xl bg-dark-900/80 border border-gold-500/30 transition-all duration-300">
+        <div class="flex items-center gap-3 text-gold-400 font-bold text-base mb-2">
+          <i class="fa-solid fa-unlock-keyhole"></i>
+          <span id="simStageTitle">Phase 3: Mobilität & Freiheit für sie erreicht</span>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed" id="simStageDescription">
+          Arbeitszeitreduktion für sie auf 50% problemlos machbar. BMW X5 PHEV Firmenwagen geleast. US-Business-Class Flüge werden über die Amex Business Platinum Meilen gedeckt.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-4 no-print">
+      <div class="flex flex-wrap gap-2">
+        <button onclick="filterCategory('all')" class="cat-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-gold-500 text-dark-950 transition shadow-md shadow-gold-500/20" data-cat="all">
+          Alle Meilensteine
+        </button>
+        <button onclick="filterCategory('tech')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-dark-850 text-slate-400 hover:text-white border border-slate-800 transition" data-cat="tech">
+          <i class="fa-solid fa-laptop-code mr-1 text-gold-400"></i> Tech & Office
+        </button>
+        <button onclick="filterCategory('travel')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-dark-850 text-slate-400 hover:text-white border border-slate-800 transition" data-cat="travel">
+          <i class="fa-solid fa-plane-departure mr-1 text-gold-400"></i> Lifestyle & Travel
+        </button>
+        <button onclick="filterCategory('freedom')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-dark-850 text-slate-400 hover:text-white border border-slate-800 transition" data-cat="freedom">
+          <i class="fa-solid fa-heart mr-1 text-gold-400"></i> Familie & Entlastung
+        </button>
+      </div>
+      <div class="text-xs text-slate-400">
+        <i class="fa-regular fa-circle-check text-emerald-400 mr-1"></i> Klicke auf Ziele, um sie abzuhaken
+      </div>
+    </div>
+
+    <!-- 5 Phase Milestone Roadmap Grid -->
+    <div class="space-y-8" id="roadmapContainer">
+
+      <!-- PHASE 1 -->
+      <div class="phase-group space-y-4" data-phase="1">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 font-bold flex items-center justify-center text-sm border border-gold-500/30">1</span>
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">Phase 1: Fundament & Werkzeuge</h3>
+              <p class="text-xs text-gold-400 font-medium">3 bis 4 Kunden • 6.000 – 8.000 € MRR</p>
+            </div>
+          </div>
+          <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Priority 1</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Item 1 -->
+          <div onclick="toggleGoal('goal-macbooks')" id="goal-macbooks" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="tech">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-brands fa-apple"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">2x Neue MacBooks Pro</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Höchste Arbeitsleistung für beide. 100% Sofortabschreibung im Anschaffungsjahr als digitales Wirtschaftsgut.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-emerald-400">
+              <i class="fa-solid fa-receipt"></i> Steuerlicher Soforthebel
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div onclick="toggleGoal('goal-phones')" id="goal-phones" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="tech">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Flagship iPhones für beide</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Geschäftshandys & Flatrates. Private Mitnutzung nach § 3 Nr. 45 EStG komplett steuerfrei (keine 1%-Regel).
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-emerald-400">
+              <i class="fa-solid fa-shield-halved"></i> 100% Betriebsausgabe
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div onclick="toggleGoal('goal-autopilot-basics')" id="goal-autopilot-basics" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="freedom">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Haushalts-Autopilot Basics</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              HelloFresh für genussvolles Kochen ohne Einkaufsstress, Outfittery-Stilboxen & Amazon Spar-Abos.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-gold-400">
+              <i class="fa-solid fa-clock"></i> ~5 Std. Zeitgewinn / Woche
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2 -->
+      <div class="phase-group space-y-4" data-phase="2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 font-bold flex items-center justify-center text-sm border border-gold-500/30">2</span>
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">Phase 2: Headquarters & Zeitgewinn</h3>
+              <p class="text-xs text-gold-400 font-medium">5 bis 7 Kunden • 10.000 – 14.000 € MRR</p>
+            </div>
+          </div>
+          <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Priority 2</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Item 4 -->
+          <div onclick="toggleGoal('goal-office')" id="goal-office" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="tech">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-building"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Eigenes Headquarter / Büro</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Ruhiger, privater Ort für Vertriebs-Calls, Pipeline-Automation und Deep Work. Miete voll betrieblich absetzbar.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-slate-400">
+              <i class="fa-solid fa-location-dot text-gold-400"></i> Stuttgart & Umgebung
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div onclick="toggleGoal('goal-household-card')" id="goal-household-card" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="freedom">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Sorgenfreies Haushaltskonto</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              C24 / ING Gemeinschaftskonto mit eigener Apple-Pay-Karte für sie. 3.000 € Monatsbudget für Essen, Genuss & Shopping.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-emerald-400">
+              <i class="fa-solid fa-heart"></i> Null Rechtfertigung im Alltag
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div onclick="toggleGoal('goal-household-help')" id="goal-household-help" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="freedom">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-broom"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Zugehfrau & Grundstückspflege</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              2x pro Woche Putzen, Bügeln und Frische. Gärtner für Rasen und Hecken. Das Wochenende gehört nur noch euch.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-gold-400">
+              <i class="fa-solid fa-sparkles"></i> 100% stressfreie Wochenenden
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3 -->
+      <div class="phase-group space-y-4" data-phase="3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 font-bold flex items-center justify-center text-sm border border-gold-500/30">3</span>
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">Phase 3: Mobilität & US-Business-Class</h3>
+              <p class="text-xs text-gold-400 font-medium">8 bis 10 Kunden • 16.000 – 20.000 € MRR</p>
+            </div>
+          </div>
+          <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Priority 3</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Item 7 -->
+          <div onclick="toggleGoal('goal-wife-parttime')" id="goal-wife-parttime" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="freedom">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-sun"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">50% Teilzeit für sie</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Erste große Freiheitsstufe: Arbeitszeit halbieren, Nachmittage frei, Kassenversicherung bleibt vorerst bestehen.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-emerald-400">
+              <i class="fa-solid fa-check-double"></i> Finanziell absolut schmerzfrei
+            </div>
+          </div>
+
+          <!-- Item 8 -->
+          <div onclick="toggleGoal('goal-bmw-x5')" id="goal-bmw-x5" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="travel">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-car-side"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">BMW X5 PHEV Firmenwagen</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Souveräner Luxus-SUV. Günstige 0,5%-Versteuerung für Plug-in Hybride, Leasing & Kraftstoff voll über die Firma.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-gold-400">
+              <i class="fa-solid fa-bolt"></i> 0,5% Steuer-Vorteil
+            </div>
+          </div>
+
+          <!-- Item 9 -->
+          <div onclick="toggleGoal('goal-amex-us')" id="goal-amex-us" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="travel">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-plane-departure"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">USA in Business Class</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Amex Business Platinum Meilen-Engine läuft. Lie-Flat Betten, Champagner über den Wolken, Westküsten-Roadtrip.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-emerald-400">
+              <i class="fa-solid fa-star"></i> Flugkosten fast zum Nulltarif
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 4 -->
+      <div class="phase-group space-y-4" data-phase="4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 font-bold flex items-center justify-center text-sm border border-gold-500/30">4</span>
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">Phase 4: Volle Souveränität & Erlebnisse</h3>
+              <p class="text-xs text-gold-400 font-medium">12 bis 15 Kunden • 24.000 – 30.000 € MRR</p>
+            </div>
+          </div>
+          <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Priority 4</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Item 10 -->
+          <div onclick="toggleGoal('goal-wife-agency')" id="goal-wife-agency" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="freedom">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Anstellung in eigener Agentur</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Kündigung beim alten Arbeitgeber. Anstellung (Midijob) in der eigenen Firma: volle Krankenversicherung & maximale Steuerabzüge.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-emerald-400">
+              <i class="fa-solid fa-circle-check"></i> 100% Unabhängigkeit vom Chef
+            </div>
+          </div>
+
+          <!-- Item 11 -->
+          <div onclick="toggleGoal('goal-montana')" id="goal-montana" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="travel">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-mountain-sun"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Montana & Dutton Ranch</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Chief Joseph Ranch im Bitterroot Valley live erleben. V8-SUV, Big Sky Country & Kaminfeuer in Luxus-Lodges.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-gold-400">
+              <i class="fa-solid fa-horse"></i> Reales Yellowstone Feeling
+            </div>
+          </div>
+
+          <!-- Item 12 -->
+          <div onclick="toggleGoal('goal-home-spa')" id="goal-home-spa" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="tech">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-hot-tub-person"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Home-Wellness & Krafttempel</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Panorama-Gartensauna (90°C), Edelstahl-Kaltwasserbecken (4°C) und High-End Eleiko Rack für Peak Performance.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-emerald-400">
+              <i class="fa-solid fa-dumbbell"></i> 0 Min. Anfahrt zur Regeneration
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 5 -->
+      <div class="phase-group space-y-4" data-phase="5">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 font-bold flex items-center justify-center text-sm border border-gold-500/30">5</span>
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">Phase 5: Chalkidiki Sanctuary & Die Million</h3>
+              <p class="text-xs text-gold-400 font-medium">16 bis 20+ Kunden • 32.000 – 40.000+ € MRR</p>
+            </div>
+          </div>
+          <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Priority 5</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Item 13 -->
+          <div onclick="toggleGoal('goal-privatiere')" id="goal-privatiere" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="freedom">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-crown"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Vollkommene Privatière</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Sie beendet jegliche Erwerbstätigkeit zu 100%. Volle finanzielle Freiheit, eigener ETF-Aufbau und sorgenfreie Tage.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-emerald-400">
+              <i class="fa-solid fa-infinity"></i> Absolute Zeitsouveränität
+            </div>
+          </div>
+
+          <!-- Item 14 -->
+          <div onclick="toggleGoal('goal-chalkidiki')" id="goal-chalkidiki" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="travel">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-house-chimney-window"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">Eigenes Haus auf Chalkidiki</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Freistehendes Steinhaus mit privatem Pool auf Sithonia. Pinienduft, türkises Meer & Frühjahr/Herbst unter südlicher Sonne.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-gold-400">
+              <i class="fa-solid fa-umbrella-beach"></i> Eigennutzung + Luxus-Rental
+            </div>
+          </div>
+
+          <!-- Item 15 -->
+          <div onclick="toggleGoal('goal-million-depot')" id="goal-million-depot" class="goal-card glass-card glass-card-hover rounded-2xl p-5 cursor-pointer transition relative group" data-category="freedom">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-gold-400 text-lg mb-3">
+                <i class="fa-solid fa-vault"></i>
+              </div>
+              <div class="check-indicator w-6 h-6 rounded-full border border-slate-600 flex items-center justify-center text-xs text-transparent transition">
+                <i class="fa-solid fa-check"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-white text-base">1.000.000 € ETF-Depot</h4>
+            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+              Solider Vanguard FTSE All-World Core. 40.000 € jährliche Entnahme nach 4%-Regel ohne Substanzverlust.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-[11px] font-semibold text-emerald-400">
+              <i class="fa-solid fa-shield-halved"></i> Lebenslange Unangreifbarkeit
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- The Visual Bucket List Cards (Atmospheric Mood Gallery) -->
+    <section class="space-y-6 pt-6">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-2">
+        <div>
+          <span class="text-xs font-bold tracking-widest uppercase text-gold-400">The Visual Reality</span>
+          <h3 class="text-2xl font-bold text-white mt-1">Erlebnisse, für die wir das Business bauen</h3>
+        </div>
+        <span class="text-xs text-slate-500 font-medium">Gemeinsam erleben • Keine Kompromisse</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Visual Card 1: Business Class -->
+        <div class="glass-card rounded-3xl overflow-hidden group border border-slate-800 hover:border-gold-500/40 transition">
+          <div class="h-48 bg-gradient-to-t from-dark-900 via-slate-800 to-indigo-950/40 relative flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+            <div class="text-center p-6 z-10 space-y-2">
+              <div class="inline-flex p-3 rounded-full bg-gold-500/20 text-gold-400 text-2xl border border-gold-500/30 group-hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-plane-up"></i>
+              </div>
+              <h5 class="text-white font-bold text-lg">Business Class Lie-Flat</h5>
+              <p class="text-slate-400 text-xs">Frankfurt $\rightarrow$ Los Angeles</p>
+            </div>
+          </div>
+          <div class="p-5 space-y-2 bg-dark-900/90">
+            <div class="flex justify-between items-center text-xs font-semibold text-gold-400">
+              <span>Lufthansa / Star Alliance</span>
+              <span>10.000 Meter Höhe</span>
+            </div>
+            <p class="text-slate-300 text-xs leading-relaxed">
+              Gemeinsamer Champagner zum Start, Menü über den Wolken, Filmabend zu zweit und ausgeschlafen im Lie-Flat-Bett in Kalifornien landen.
+            </p>
+          </div>
+        </div>
+
+        <!-- Visual Card 2: Montana & Dutton Ranch -->
+        <div class="glass-card rounded-3xl overflow-hidden group border border-slate-800 hover:border-gold-500/40 transition">
+          <div class="h-48 bg-gradient-to-t from-dark-900 via-amber-950/40 to-stone-900 relative flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+            <div class="text-center p-6 z-10 space-y-2">
+              <div class="inline-flex p-3 rounded-full bg-emerald-500/20 text-emerald-400 text-2xl border border-emerald-500/30 group-hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-mountain"></i>
+              </div>
+              <h5 class="text-white font-bold text-lg">Bitterroot Valley, Montana</h5>
+              <p class="text-slate-400 text-xs">Chief Joseph Ranch & Big Sky</p>
+            </div>
+          </div>
+          <div class="p-5 space-y-2 bg-dark-900/90">
+            <div class="flex justify-between items-center text-xs font-semibold text-emerald-400">
+              <span>Dutton Ranch Kulisse</span>
+              <span>V8 Full-Size SUV</span>
+            </div>
+            <p class="text-slate-300 text-xs leading-relaxed">
+              Weite, unberührte Natur der Rocky Mountains, Flussrauschen vor der Veranda, Pinienduft und abends der Kamin in der Luxus-Lodge.
+            </p>
+          </div>
+        </div>
+
+        <!-- Visual Card 3: Chalkidiki Villa -->
+        <div class="glass-card rounded-3xl overflow-hidden group border border-slate-800 hover:border-gold-500/40 transition">
+          <div class="h-48 bg-gradient-to-t from-dark-900 via-teal-950/40 to-cyan-950/30 relative flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+            <div class="text-center p-6 z-10 space-y-2">
+              <div class="inline-flex p-3 rounded-full bg-cyan-500/20 text-cyan-400 text-2xl border border-cyan-500/30 group-hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-water-ladder"></i>
+              </div>
+              <h5 class="text-white font-bold text-lg">Chalkidiki Sanctuary</h5>
+              <p class="text-slate-400 text-xs">Sithonia • Privater Pool</p>
+            </div>
+          </div>
+          <div class="p-5 space-y-2 bg-dark-900/90">
+            <div class="flex justify-between items-center text-xs font-semibold text-cyan-400">
+              <span>Eigener Rückzugsort</span>
+              <span>Mai & Oktober Sonne</span>
+            </div>
+            <p class="text-slate-300 text-xs leading-relaxed">
+              Morgens Espresso mit Blick auf das türkise Mittelmeer. Schwimmen im eigenen Pool, während die Outreach-Automationen Kunden akquirieren.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compound Interest Calculator & Wealth Builder -->
+    <section class="glass-card rounded-3xl p-6 sm:p-10 space-y-8">
+      <div class="border-b border-slate-800 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold tracking-widest uppercase text-gold-400">Zinseszins & Vermögens-Maschine</span>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white mt-1">Interaktiver Zukunfts-Rechner</h3>
+          <p class="text-slate-400 text-sm">Berechne live das Vermögen für eure Kids (18 J.) und deine eigene Ruhestands-Säule.</p>
+        </div>
+        <div class="flex p-1 bg-dark-900 rounded-xl border border-slate-800">
+          <button onclick="setCalcTab('kids')" id="btnTabKids" class="px-5 py-2 rounded-lg text-xs font-bold bg-gold-500 text-dark-950 transition">
+            Kids ETF-Booster (18 J.)
+          </button>
+          <button onclick="setCalcTab('pension')" id="btnTabPension" class="px-5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition">
+            Eigene Altersvorsorge
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 1: KIDS CALCULATOR -->
+      <div id="tabKidsContent" class="space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+          <div class="lg:col-span-1 space-y-4">
+            <label class="text-xs font-semibold uppercase text-slate-400 tracking-wider block">
+              Monatliche Sparrate für jedes Kind:
+            </label>
+            <div class="flex items-center gap-3">
+              <span class="text-3xl font-bold text-gold-400 font-display" id="kidsRateVal">150 €</span>
+              <span class="text-xs text-slate-500">/ Monat von dir</span>
+            </div>
+            <input type="range" id="kidsRateSlider" min="50" max="400" value="150" step="25"
+              class="w-full h-2.5 bg-dark-850 rounded-lg appearance-none cursor-pointer slider-thumb border border-slate-800">
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Basis: Vanguard FTSE All-World (A2PKXG) mit ca. 7 % p. a. durchschnittlicher Marktrendite. Eigener Freistellungsauftrag (1.000 €) voll ausgenutzt.
+            </p>
+          </div>
+
+          <div class="lg:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-4 rounded-2xl bg-dark-900 border border-slate-800 text-center">
+              <span class="text-[11px] text-slate-400 font-semibold block">Mit 28 Jahren (10 J.)</span>
+              <div class="text-xl font-bold text-white mt-1" id="k10">26.100 €</div>
+              <span class="text-[10px] text-slate-500 block mt-1">Eingezahlt: <span id="ke10">18.000 €</span></span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-dark-900 border border-slate-800 text-center">
+              <span class="text-[11px] text-slate-400 font-semibold block">Mit 38 Jahren (20 J.)</span>
+              <div class="text-xl font-bold text-gold-400 mt-1" id="k20">76.600 €</div>
+              <span class="text-[10px] text-slate-500 block mt-1">Eingezahlt: <span id="ke20">36.000 €</span></span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-dark-900 border border-slate-800 text-center">
+              <span class="text-[11px] text-slate-400 font-semibold block">Mit 48 Jahren (30 J.)</span>
+              <div class="text-xl font-bold text-emerald-400 mt-1" id="k30">176.500 €</div>
+              <span class="text-[10px] text-slate-500 block mt-1">Eingezahlt: <span id="ke30">54.000 €</span></span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-dark-900 border border-gold-500/30 text-center bg-gradient-to-b from-dark-900 to-gold-950/20">
+              <span class="text-[11px] text-gold-400 font-bold block">Mit 58 Jahren (40 J.)</span>
+              <div class="text-xl font-bold text-gold-300 mt-1" id="k40">373.000 €</div>
+              <span class="text-[10px] text-slate-500 block mt-1">Zinseszins: <span id="kz40">301.000 €</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: PENSION CALCULATOR (Hidden initially) -->
+      <div id="tabPensionContent" class="space-y-6 hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+          <div class="lg:col-span-1 space-y-4">
+            <label class="text-xs font-semibold uppercase text-slate-400 tracking-wider block">
+              Deine monatliche Sparrate:
+            </label>
+            <div class="flex items-center gap-3">
+              <span class="text-3xl font-bold text-emerald-400 font-display" id="pensionRateVal">2.000 €</span>
+              <span class="text-xs text-slate-500">/ Monat privat</span>
+            </div>
+            <input type="range" id="pensionRateSlider" min="1000" max="4000" value="2000" step="250"
+              class="w-full h-2.5 bg-dark-850 rounded-lg appearance-none cursor-pointer slider-thumb border border-slate-800">
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Vollkommen flexibles Privatdepot (Vanguard All-World). Nach der 4%-Regel entnimmst du im Alter jährlich Kapital, ohne den Stock zu verzehren.
+            </p>
+          </div>
+
+          <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-dark-900 border border-slate-800">
+              <span class="text-xs text-slate-400 font-semibold block">Nach 10 Jahren</span>
+              <div class="text-2xl font-bold text-white mt-1" id="p10">348.000 €</div>
+              <span class="text-xs text-emerald-400 block mt-2">Monatl. 4% Entnahme: <b id="pe10">1.160 €</b></span>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-dark-900 border border-slate-800">
+              <span class="text-xs text-slate-400 font-semibold block">Nach 15 Jahren</span>
+              <div class="text-2xl font-bold text-gold-400 mt-1" id="p15">635.000 €</div>
+              <span class="text-xs text-emerald-400 block mt-2">Monatl. 4% Entnahme: <b id="pe15">2.110 €</b></span>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-dark-900 border border-emerald-500/40 bg-gradient-to-b from-dark-900 to-emerald-950/20">
+              <span class="text-xs text-emerald-400 font-bold block">Nach 20 Jahren</span>
+              <div class="text-2xl font-bold text-white mt-1" id="p20">1.042.000 €</div>
+              <span class="text-xs text-emerald-400 block mt-2">Monatl. 4% Entnahme: <b id="pe20">3.470 €</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Quote -->
+    <footer class="text-center py-8 border-t border-slate-800/60 space-y-2">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gold-400">
+        Execution is the only currency
+      </p>
+      <p class="text-slate-500 text-xs">
+        B2B Lead-Gen Engine • 50–100 Kontakte täglich • 2.000 € Netto Retainer • 100% Freiheit für euch beide.
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- APPLICATION LOGIC (JavaScript) -->
+  <script>
+    // --- 1. Client Scaling Simulator Logic ---
+    const clientSlider = document.getElementById('clientSlider');
+    const clientCountLabel = document.getElementById('clientCountLabel');
+    const simMrr = document.getElementById('simMrr');
+    const simNetto = document.getElementById('simNetto');
+    const simStageTitle = document.getElementById('simStageTitle');
+    const simStageDescription = document.getElementById('simStageDescription');
+    const simUnlockedCard = document.getElementById('simUnlockedCard');
+
+    const STAGES = [
+      {
+        min: 1,
+        max: 3,
+        title: "Phase 1: Fundament & Hardware",
+        desc: "2x MacBooks Pro & Flagship iPhones sofort voll abgesetzt. Alltags-Autopilot mit HelloFresh gestartet.",
+        nettoFactor: 0.35,
+        border: "border-slate-700"
+      },
+      {
+        min: 4,
+        max: 7,
+        title: "Phase 2: Headquarters & Haushalts-Autopilot",
+        desc: "Eigenes Büro in Stuttgart gemietet. Variables Haushaltskonto für sie (3.000 €/m). Zugehfrau & Gärtner entlasten den Alltag vollständig.",
+        nettoFactor: 0.30,
+        border: "border-gold-500/30"
+      },
+      {
+        min: 8,
+        max: 11,
+        title: "Phase 3: Mobilität, 50% Teilzeit für sie & US-Traum",
+        desc: "Arbeitszeitreduktion für sie auf 50%. BMW X5 PHEV (0,5% Regel) vor der Tür. Amex Meilen-Engine finanziert Flüge in der Business Class.",
+        nettoFactor: 0.28,
+        border: "border-gold-400/50"
+      },
+      {
+        min: 12,
+        max: 15,
+        title: "Phase 4: Volle Souveränität, Dutton Ranch & Home-Spa",
+        desc: "Anstellung von ihr in eigener Agentur. Montana Roadtrip (Chief Joseph Ranch). Private Gartensauna & Eisbad zu Hause installiert.",
+        nettoFactor: 0.26,
+        border: "border-emerald-500/40"
+      },
+      {
+        min: 16,
+        max: 25,
+        title: "Phase 5: Chalkidiki Sanctuary & Die Ruhestandsmillion",
+        desc: "Sie ist 100% Privatière. Eigenes Haus mit privatem Pool auf Sithonia/Chalkidiki. Depotbasis generiert dauerhaft passive 4% Entnahmen.",
+        nettoFactor: 0.24,
+        border: "border-emerald-400"
+      }
+    ];
+
+    function updateSimulator() {
+      const count = parseInt(clientSlider.value);
+      const mrr = count * 2000;
+      clientCountLabel.innerText = `${count} Aktive Kunden`;
+      simMrr.innerText = `${mrr.toLocaleString('de-DE')} €`;
+
+      const stage = STAGES.find(s => count >= s.min && count <= s.max) || STAGES[STAGES.length - 1];
+      
+      // Calculate realistic private net income
+      const estNetto = Math.round(mrr * stage.nettoFactor + (count >= 10 ? 1500 : 800));
+      simNetto.innerText = `~${estNetto.toLocaleString('de-DE')} €`;
+      
+      simStageTitle.innerText = `${stage.title} (${count} Kunden)`;
+      simStageDescription.innerText = stage.desc;
+
+      // Update Phase Highlight in DOM
+      document.querySelectorAll('.phase-group').forEach(group => {
+        const pNum = parseInt(group.dataset.phase);
+        let activePNum = 1;
+        if(count >= 4 && count <= 7) activePNum = 2;
+        if(count >= 8 && count <= 11) activePNum = 3;
+        if(count >= 12 && count <= 15) activePNum = 4;
+        if(count >= 16) activePNum = 5;
+
+        if (pNum === activePNum) {
+          group.classList.add('ring-1', 'ring-gold-500/40', 'p-4', 'rounded-3xl', 'bg-gold-500/5');
+        } else {
+          group.classList.remove('ring-1', 'ring-gold-500/40', 'p-4', 'rounded-3xl', 'bg-gold-500/5');
+        }
+      });
+    }
+
+    clientSlider.addEventListener('input', updateSimulator);
+
+    // --- 2. Interactive Milestone Checklist (localStorage) ---
+    const GOALS = [
+      'goal-macbooks', 'goal-phones', 'goal-autopilot-basics',
+      'goal-office', 'goal-household-card', 'goal-household-help',
+      'goal-wife-parttime', 'goal-bmw-x5', 'goal-amex-us',
+      'goal-wife-agency', 'goal-montana', 'goal-home-spa',
+      'goal-privatiere', 'goal-chalkidiki', 'goal-million-depot'
+    ];
+
+    function loadMilestoneState() {
+      const saved = JSON.parse(localStorage.getItem('roadmap_milestones_state') || '{}');
+      let completedCount = 0;
+
+      GOALS.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const isChecked = !!saved[id];
+        const indicator = el.querySelector('.check-indicator');
+
+        if (isChecked) {
+          completedCount++;
+          el.classList.add('border-emerald-500/60', 'bg-emerald-950/20');
+          if (indicator) {
+            indicator.classList.remove('text-transparent', 'border-slate-600');
+            indicator.classList.add('bg-emerald-500', 'border-emerald-400', 'text-dark-950');
+          }
+        } else {
+          el.classList.remove('border-emerald-500/60', 'bg-emerald-950/20');
+          if (indicator) {
+            indicator.classList.add('text-transparent', 'border-slate-600');
+            indicator.classList.remove('bg-emerald-500', 'border-emerald-400', 'text-dark-950');
+          }
+        }
+      });
+
+      const total = GOALS.length;
+      const pct = Math.round((completedCount / total) * 100);
+      document.getElementById('globalProgressPercent').innerText = `${pct}%`;
+      document.getElementById('globalProgressCount').innerText = `${completedCount} von ${total} Zielen erreicht`;
+    }
+
+    function toggleGoal(id) {
+      const saved = JSON.parse(localStorage.getItem('roadmap_milestones_state') || '{}');
+      const newState = !saved[id];
+      saved[id] = newState;
+      localStorage.setItem('roadmap_milestones_state', JSON.stringify(saved));
+      
+      if (newState && typeof confetti === 'function') {
+        confetti({
+          particleCount: 50,
+          spread: 60,
+          origin: { y: 0.8 },
+          colors: ['#d4af37', '#10b981', '#ffffff']
+        });
+      }
+      loadMilestoneState();
+    }
+
+    function resetMilestones() {
+      if (confirm('Möchtest du alle abgehakten Meilensteine wirklich zurücksetzen?')) {
+        localStorage.removeItem('roadmap_milestones_state');
+        loadMilestoneState();
+      }
+    }
+
+    // --- 3. Category Filter ---
+    function filterCategory(cat) {
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.classList.remove('bg-gold-500', 'text-dark-950', 'shadow-md', 'shadow-gold-500/20');
+        b.classList.add('bg-dark-850', 'text-slate-400');
+        if (b.dataset.cat === cat) {
+          b.classList.add('bg-gold-500', 'text-dark-950', 'shadow-md', 'shadow-gold-500/20');
+          b.classList.remove('bg-dark-850', 'text-slate-400');
+        }
+      });
+
+      document.querySelectorAll('.goal-card').forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // --- 4. Calculators (Compound Interest) ---
+    function calculateCompound(monthly, years, annualRate = 0.07) {
+      const months = years * 12;
+      const monthlyRate = annualRate / 12;
+      // Future Value of a series: FV = P * [((1 + r)^n - 1) / r]
+      const fv = monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+      const totalContributed = monthly * months;
+      return { fv: Math.round(fv), totalContributed, interest: Math.round(fv - totalContributed) };
+    }
+
+    // Kids Slider
+    const kidsSlider = document.getElementById('kidsRateSlider');
+    function updateKidsCalc() {
+      const val = parseInt(kidsSlider.value);
+      document.getElementById('kidsRateVal').innerText = `${val} €`;
+      
+      const res10 = calculateCompound(val, 10);
+      const res20 = calculateCompound(val, 20);
+      const res30 = calculateCompound(val, 30);
+      const res40 = calculateCompound(val, 40);
+
+      document.getElementById('k10').innerText = `${res10.fv.toLocaleString('de-DE')} €`;
+      document.getElementById('ke10').innerText = `${res10.totalContributed.toLocaleString('de-DE')} €`;
+
+      document.getElementById('k20').innerText = `${res20.fv.toLocaleString('de-DE')} €`;
+      document.getElementById('ke20').innerText = `${res20.totalContributed.toLocaleString('de-DE')} €`;
+
+      document.getElementById('k30').innerText = `${res30.fv.toLocaleString('de-DE')} €`;
+      document.getElementById('ke30').innerText = `${res30.totalContributed.toLocaleString('de-DE')} €`;
+
+      document.getElementById('k40').innerText = `${res40.fv.toLocaleString('de-DE')} €`;
+      document.getElementById('kz40').innerText = `${res40.interest.toLocaleString('de-DE')} €`;
+    }
+    kidsSlider.addEventListener('input', updateKidsCalc);
+
+    // Pension Slider
+    const pensionSlider = document.getElementById('pensionRateSlider');
+    function updatePensionCalc() {
+      const val = parseInt(pensionSlider.value);
+      document.getElementById('pensionRateVal').innerText = `${val.toLocaleString('de-DE')} €`;
+
+      const res10 = calculateCompound(val, 10);
+      const res15 = calculateCompound(val, 15);
+      const res20 = calculateCompound(val, 20);
+
+      document.getElementById('p10').innerText = `${res10.fv.toLocaleString('de-DE')} €`;
+      document.getElementById('pe10').innerText = `${Math.round((res10.fv * 0.04) / 12).toLocaleString('de-DE')} €`;
+
+      document.getElementById('p15').innerText = `${res15.fv.toLocaleString('de-DE')} €`;
+      document.getElementById('pe15').innerText = `${Math.round((res15.fv * 0.04) / 12).toLocaleString('de-DE')} €`;
+
+      document.getElementById('p20').innerText = `${res20.fv.toLocaleString('de-DE')} €`;
+      document.getElementById('pe20').innerText = `${Math.round((res20.fv * 0.04) / 12).toLocaleString('de-DE')} €`;
+    }
+    pensionSlider.addEventListener('input', updatePensionCalc);
+
+    // Tab Switcher
+    function setCalcTab(tab) {
+      const btnKids = document.getElementById('btnTabKids');
+      const btnPension = document.getElementById('btnTabPension');
+      const contentKids = document.getElementById('tabKidsContent');
+      const contentPension = document.getElementById('tabPensionContent');
+
+      if (tab === 'kids') {
+        btnKids.classList.add('bg-gold-500', 'text-dark-950');
+        btnKids.classList.remove('text-slate-400');
+        btnPension.classList.remove('bg-gold-500', 'text-dark-950');
+        btnPension.classList.add('text-slate-400');
+        contentKids.classList.remove('hidden');
+        contentPension.classList.add('hidden');
+      } else {
+        btnPension.classList.add('bg-gold-500', 'text-dark-950');
+        btnPension.classList.remove('text-slate-400');
+        btnKids.classList.remove('bg-gold-500', 'text-dark-950');
+        btnKids.classList.add('text-slate-400');
+        contentPension.classList.remove('hidden');
+        contentKids.classList.add('hidden');
+      }
+    }
+
+    // --- Init on Window Load ---
+    window.addEventListener('DOMContentLoaded', () => {
+      updateSimulator();
+      loadMilestoneState();
+      updateKidsCalc();
+      updatePensionCalc();
+    });
+  </script>
+</body>
+</html>
